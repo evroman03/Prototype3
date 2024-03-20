@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
+
 [CustomEditor(typeof(Tile))]
 public class ScriptEditor : Editor
 {
-    
     public override void OnInspectorGUI()
     {
         Tile tile = (Tile)target;
@@ -15,19 +15,20 @@ public class ScriptEditor : Editor
         switch (tile.type)
         {
             case Tile.TileType.Island:
-                EditorGUILayout.LabelField("You selected Option 1!");
+                EditorGUILayout.Space();
+                EditorGUILayout.LabelField("Island Details: ");
+                tile.option1data = EditorGUILayout.IntField(tile.option1data, GUILayout.MaxWidth(50));
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.EndHorizontal();
                 break;
             case Tile.TileType.PirateCove:
-                EditorGUILayout.LabelField("You selected Option 2!");
+                EditorGUILayout.LabelField("Pirate Cove Details: ");
                 break;
             case Tile.TileType.Ocean:
-                EditorGUILayout.LabelField("You selected Option 3!");
+                EditorGUILayout.LabelField("Ocean Details: ");
                 break;
             case Tile.TileType.RoyalPort:
-                EditorGUILayout.LabelField("You selected Option 3!");
-                break;
-            case Tile.TileType.Border:
-                EditorGUILayout.LabelField("You selected Option 3!");
+                EditorGUILayout.LabelField("Royal Port Details: ");
                 break;
         }
     }
