@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 1894082177}
   - component: {fileID: 1894082176}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TileManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,9 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fd12866e3ad3848bc79fa8e1a64eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridXSize: 6
-  GridYSize: 6
-  TileObject: {fileID: 8006642840335797307, guid: d77fb1b2442569c47a613fa3df1d3832, type: 3}
+  GridXSize: 5
+  GridZSize: 5
+  TileObjects:
+  - {fileID: 8006642840335797307, guid: d77fb1b2442569c47a613fa3df1d3832, type: 3}
+  - {fileID: 8006642840335797307, guid: c2ba2de1f7f3cf849ad501b818af4816, type: 3}
 --- !u!4 &1894082177
 Transform:
   m_ObjectHideFlags: 0
