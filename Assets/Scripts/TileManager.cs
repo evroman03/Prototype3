@@ -1,7 +1,9 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TileManager : MonoBehaviour
 {
@@ -15,6 +17,10 @@ public class TileManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             CreateGrid();
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("EliScene");
         }
     }
     public void CreateGrid()
@@ -105,7 +111,7 @@ public class TileManager : MonoBehaviour
         }
         return surroundingTiles;
     }
-    private GameObject GetTileAtCoordinates(float x, float z)
+    public GameObject GetTileAtCoordinates(float x, float z)
     {
         foreach(GameObject gameObject in TileObjects)
         {
@@ -117,5 +123,20 @@ public class TileManager : MonoBehaviour
         }
         print("I couldn't find the tile at " + x + ", " + z);
         return null; //This should never happen...
+    }
+
+    public GameObject[] GetAllTilesByTileType(Tile.TileType tileType)
+    {
+        int index = 0;
+        GameObject[] thoseTiles = new GameObject[10];
+        foreach(GameObject gameObject in TileObjects)
+        {
+            var temp = gameObject.GetComponent<Tile>().type;
+            if(temp == tileType)
+            {
+                thoseTiles[index++] = gameObject;
+            }
+        }
+        return thoseTiles;
     }
 }

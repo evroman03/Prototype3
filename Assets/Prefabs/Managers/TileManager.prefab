@@ -45,14 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OceanChance: 90
-  PirateCoveChance: 1
-  RoyalPortChance: 2
-  IslandChance: 7
-  GridXSize: 20
-  GridZSize: 20
+  PirateCoveChance: 3
+  RoyalPortChance: 3
+  IslandChance: 4
+  MaxPirateCoves: 3
+  MaxRoyalPorts: 4
+  MaxIslands: 10
+  GridXSize: 15
+  GridZSize: 15
   TileObjects:
   - {fileID: 8006642840335797307, guid: 5a6f3c421da053948a1d959ee8c32d16, type: 3}
   - {fileID: 8006642840335797307, guid: c2ba2de1f7f3cf849ad501b818af4816, type: 3}
-  - {fileID: 8006642840335797307, guid: f294dbbeeb3235740a27ab05f05121c1, type: 3}
-  - {fileID: 8006642840335797307, guid: d77fb1b2442569c47a613fa3df1d3832, type: 3}
+  - {fileID: 8006642840335797307, guid: 64c0b7218eb8d2c41ab34e3d4a678fc2, type: 3}
+  - {fileID: 8006642840335797307, guid: c6cd545a71e88c244af78d1a1df96155, type: 3}
   - {fileID: 8006642840335797307, guid: ec367457946c1e44d9c11369108b94e8, type: 3}
