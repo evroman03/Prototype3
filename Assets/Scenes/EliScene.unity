@@ -321,6 +321,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: GridXSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: GridZSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: OceanChance
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandChance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: RoyalPortChance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: PirateCoveChance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8758853042896126218, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

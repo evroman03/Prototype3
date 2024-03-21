@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fd12866e3ad3848bc79fa8e1a64eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OceanChance: 88
-  PirateCoveChance: 2
-  RoyalPortChance: 3
+  OceanChance: 90
+  PirateCoveChance: 1
+  RoyalPortChance: 2
   IslandChance: 7
   GridXSize: 20
   GridZSize: 20
