@@ -309,6 +309,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!1001 &3930070386944612806
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1156430105674203034, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_Name
+      value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec4e178080982334aa824468bad4db60, type: 3}
 --- !u!1001 &7217236567364446549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -320,34 +377,6 @@ PrefabInstance:
     - target: {fileID: 2496272791825034492, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_Name
       value: TileManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: MaxIslands
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: OceanChance
-      value: 85
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: IslandChance
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: MaxRoyalPorts
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: MaxPirateCoves
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: RoyalPortChance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: PirateCoveChance
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8758853042896126218, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -401,3 +430,4 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 7217236567364446549}
+  - {fileID: 3930070386944612806}

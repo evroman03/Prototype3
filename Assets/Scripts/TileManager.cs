@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,23 +8,42 @@ using UnityEngine.SceneManagement;
 
 public class TileManager : MonoBehaviour
 {
-    [Tooltip("These MUST add up to 100")] public int OceanChance=75, PirateCoveChance=3, RoyalPortChance=10, IslandChance=12;
-    [Tooltip("Use these to control how many locations spawn.")] public int MaxPirateCoves = 3, MaxRoyalPorts=4, MaxIslands =10;
+    #region Singleton
+    private static TileManager instance;
+    public static TileManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindAnyObjectByType(typeof(TileManager)) as TileManager;
+            return instance;
+        }
+        set
+        {
+            instance = value;
+        }
+    }
+    #endregion
+
+    public Action<bool> MapInitialized;
+    [Tooltip("These MUST add up to 100")][SerializeField] private int OceanChance =75, PirateCoveChance=3, RoyalPortChance=10, IslandChance=12;
+    [Tooltip("Use these to control how many locations spawn.")] [SerializeField] private int MaxPirateCoves = 3, MaxRoyalPorts=4, MaxIslands =10;
     private int currentPirateCoves = 0, currentPorts = 0, currentIslands=0;
-    public int GridXSize, GridZSize;
-    public List<GameObject> TileObjects = new List<GameObject>();
+    [SerializeField] private int GridXSize, GridZSize;
+    public List<GameObject> TilePrefabs = new List<GameObject>();
+    public List<GameObject> AllTiles = new List<GameObject>();
     public void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            CreateGrid();
+            InitializeMap();
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("EliScene");
         }
     }
-    public void CreateGrid()
+    public void InitializeMap()
     {
         int previousTile = 0;
         for(int x =0; x < GridXSize; x++)
@@ -32,35 +52,29 @@ public class TileManager : MonoBehaviour
             {
                 if(x == GridXSize-1 || z == GridZSize-1 || x==0 || z==0)
                 {
-                    var spawnedBorder = Instantiate(TileObjects[0], new Vector3(x, 0, z), Quaternion.identity);
+                    var spawnedBorder = Instantiate(TilePrefabs[0], new Vector3(x, 0, z), Quaternion.identity);
                     var temp = spawnedBorder.GetComponent<Tile>();
                     spawnedBorder.name = $"({x},{z}), " + temp.type.ToString();
                     temp.Coordinates = new Vector3(x, 0, z);
+                    AllTiles.Add(spawnedBorder);
                 }
                 else
                 {
                     int randomTile = TileChooser(previousTile);
-                    var spawnedTile = Instantiate(TileObjects[randomTile], new Vector3(x, 0, z), Quaternion.identity);
-                    
-                    //var TileComponent = spawnedTile.GetComponent<Tile>();
-                    //foreach(GameObject tile in GetSurroundingTiles(TileComponent))
-                    //{
-                    //    if (TileComponent.type.Equals(tile.GetComponent<Tile>().type))
-                    //    {
-                    //        Destroy(spawnedTile);
-                    //    }
-                    //}
+                    var spawnedTile = Instantiate(TilePrefabs[randomTile], new Vector3(x, 0, z), Quaternion.identity);
                     var temp = spawnedTile.GetComponent<Tile>();
                     spawnedTile.name = $"({x},{z}), " + temp.type.ToString();
                     temp.Coordinates = new Vector3(x, 0, z);
                     previousTile = randomTile;
+                    AllTiles.Add(spawnedTile);
                 }
             }
         }
+        MapInitialized?.Invoke(true);
     }
     public int TileChooser(int previousTile)
     {
-        int randomValue = Random.Range(1, 101);
+        int randomValue = UnityEngine.Random.Range(1, 101);
         int numToReturn=4; //Default to ocean
         if (randomValue <= OceanChance)
         {
@@ -113,10 +127,10 @@ public class TileManager : MonoBehaviour
     }
     public GameObject GetTileAtCoordinates(float x, float z)
     {
-        foreach(GameObject gameObject in TileObjects)
+        foreach(GameObject gameObject in AllTiles)
         {
-            Vector2 temp = gameObject.GetComponent<Tile>().Coordinates;
-            if(x == temp.x && z == temp.y)
+            Vector3 temp = gameObject.GetComponent<Tile>().Coordinates;
+            if(x == temp.x && z == temp.z)
             {
                 return gameObject;
             }
@@ -129,7 +143,7 @@ public class TileManager : MonoBehaviour
     {
         int index = 0;
         GameObject[] thoseTiles = new GameObject[10];
-        foreach(GameObject gameObject in TileObjects)
+        foreach(GameObject gameObject in AllTiles)
         {
             var temp = gameObject.GetComponent<Tile>().type;
             if(temp == tileType)

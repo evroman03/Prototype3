@@ -44,18 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fd12866e3ad3848bc79fa8e1a64eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OceanChance: 90
-  PirateCoveChance: 3
-  RoyalPortChance: 3
-  IslandChance: 4
-  MaxPirateCoves: 3
-  MaxRoyalPorts: 4
+  OceanChance: 85
+  PirateCoveChance: 4
+  RoyalPortChance: 4
+  IslandChance: 7
+  MaxPirateCoves: 5
+  MaxRoyalPorts: 6
   MaxIslands: 10
   GridXSize: 15
   GridZSize: 15
-  TileObjects:
+  TilePrefabs:
   - {fileID: 8006642840335797307, guid: 5a6f3c421da053948a1d959ee8c32d16, type: 3}
   - {fileID: 8006642840335797307, guid: c2ba2de1f7f3cf849ad501b818af4816, type: 3}
   - {fileID: 8006642840335797307, guid: 64c0b7218eb8d2c41ab34e3d4a678fc2, type: 3}
   - {fileID: 8006642840335797307, guid: c6cd545a71e88c244af78d1a1df96155, type: 3}
   - {fileID: 8006642840335797307, guid: ec367457946c1e44d9c11369108b94e8, type: 3}
+  AllTiles: []
