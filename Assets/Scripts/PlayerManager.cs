@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
             }
             PlayerShip = Instantiate(PlayerShip, TilePlayerIsOn.transform.GetChild(0));
             TilesSurroundingPlayer = TileManager.Instance.GetSurroundingTiles(TilePlayerIsOn.GetComponent<Tile>());
+            RevealFog();
         }
     }
 
@@ -78,7 +79,16 @@ public class PlayerManager : MonoBehaviour
             TilePlayerIsOn = TilesSurroundingPlayer[direction];
             TilesSurroundingPlayer = TileManager.Instance.GetSurroundingTiles(TilePlayerIsOn.GetComponent<Tile>());
             PlayerShip.transform.position = TilePlayerIsOn.transform.GetChild(0).transform.position;
+            RevealFog();
         } 
+    }
+    public void RevealFog()
+    {
+        foreach (GameObject tile in TilesSurroundingPlayer)
+        {
+            tile.GetComponent<Tile>().FogState(true);
+        }
+        TilePlayerIsOn.GetComponent<Tile>().FogState(true);    
     }
 
     void Update()
