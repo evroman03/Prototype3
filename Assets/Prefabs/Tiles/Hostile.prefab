@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f61e900bb3f6e543be84145fcdfcb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   Coordinates: {x: 0, y: 0, z: 0}
   HasFogOfWar: 1
   Visited: 0
