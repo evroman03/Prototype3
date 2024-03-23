@@ -10,9 +10,8 @@ public class Tile : MonoBehaviour
     }
     public TileType type;
     public Vector3 Coordinates = new Vector3(0,0,0);
-    public GameObject Fog;
-    public bool HasFogOfWar = true;
-    public bool Visited = false;
+    public GameObject Fog, Interactable;
+    public bool HasFogOfWar = true, Visited=false, HasInteractable =false;
 
     [HideInInspector] public int option1data;
     [HideInInspector] public int option2data;

@@ -80,7 +80,8 @@ public class PlayerManager : MonoBehaviour
             TilesSurroundingPlayer = TileManager.Instance.GetSurroundingTiles(TilePlayerIsOn.GetComponent<Tile>());
             PlayerShip.transform.position = TilePlayerIsOn.transform.GetChild(0).transform.position;
             RevealFog();
-        } 
+            GameController.Instance.GSM(GameController.GameState.Interacting);
+        }
     }
     public void RevealFog()
     {

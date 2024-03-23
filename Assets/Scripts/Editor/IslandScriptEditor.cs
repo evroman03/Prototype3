@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
 
 
 [CustomEditor(typeof(Tile))]
-public class ScriptEditor : Editor
+public class IslandScriptEditor: Editor
 {
     public override void OnInspectorGUI()
     {
