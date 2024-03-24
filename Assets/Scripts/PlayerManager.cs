@@ -72,7 +72,8 @@ public class PlayerManager : MonoBehaviour
     {
         if(TilesSurroundingPlayer[direction].GetComponent<Tile>().type == Tile.TileType.Border)
         {
-            print("Yar har there be Kraken that way");
+            UIManager.Instance.Popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("Arrrrrgh", "The world's a dangerous place thataways, cap'n", 0);
         }
         else
         {

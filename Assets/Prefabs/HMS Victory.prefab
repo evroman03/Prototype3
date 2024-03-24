@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2999021810643186015}
   - component: {fileID: 9044417612325771544}
   m_Layer: 0
-  m_Name: HMS Endevour
+  m_Name: HMS Victory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,6 +118,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75abb837c09fc964888b49f284cec516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: HMS Victory
+  description: 'Bright flags wave, triple gun decks bristle along both sides - this
+    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
+    no matter the size we still stand the chance of a glorious victory...
+
+
+    Should
+    we fight?'
   type: 0
   ShipDamage: 0
   ShipHealth: 0

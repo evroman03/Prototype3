@@ -35,6 +35,21 @@ public class InteractableScripEditor : Editor
             EditorGUILayout.LabelField("Ship Renown Value");
             interactable.ShipRenownValue = EditorGUILayout.IntField(interactable.ShipRenownValue, GUILayout.MaxWidth(50));
             EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField(new GUIContent("Catch Player Chance", "Basically, how fast and ready is this ship / 100?"));
+            interactable.CatchPlayerChance = EditorGUILayout.IntField(interactable.CatchPlayerChance, GUILayout.MaxWidth(50));
+            EditorGUILayout.EndHorizontal();
+
+            //EditorGUILayout.BeginVertical();
+            //EditorGUILayout.LabelField(new GUIContent("Popup Title", "This isnt the name of the prefab - what will it say when the popup shows? Maybe, 'Ship sighted'?"));
+            //interactable.title =EditorGUILayout.TextField(interactable.title);
+            //EditorGUILayout.EndVertical();
+
+            EditorGUILayout.BeginVertical();
+            EditorGUILayout.LabelField(new GUIContent("Popup Description", "Yeah i know the text field doesnt show up idk"));
+            interactable.description = EditorGUILayout.TextArea(interactable.description, EditorStyles.wordWrappedLabel, GUILayout.Height(100));
+            EditorGUILayout.EndVertical();
         }
     }
 }

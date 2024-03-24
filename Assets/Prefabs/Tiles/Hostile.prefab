@@ -289,13 +289,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f61e900bb3f6e543be84145fcdfcb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  OceanTileNames:
+  - Warm waters
+  - Sharky waters
+  PirateTileNames:
+  - Blackbeard Bay
+  - Coconut Docks
+  RoyalTileNames:
+  - Port Royale
+  - 'New Heamersworth '
+  IslandTileNames:
+  - Yamiroqy
+  - Billogae
   type: 2
   Coordinates: {x: 0, y: 0, z: 0}
   Fog: {fileID: 8382997250363194137}
+  Interactable: {fileID: 0}
   HasFogOfWar: 1
   Visited: 0
-  option1data: 0
-  option2data: 0
+  HasInteractable: 0
+  lootAmount: 0
+  lootChance: 0
+  description: 
 --- !u!1 &8382997250363194137
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8758853042896126218}
   - component: {fileID: 2583145156122294174}
+  - component: {fileID: 8570731386805299799}
   m_Layer: 0
   m_Name: TileManager
   m_TagString: Untagged
@@ -51,8 +52,8 @@ MonoBehaviour:
   MaxPirateCoves: 5
   MaxRoyalPorts: 6
   MaxIslands: 10
-  GridXSize: 15
-  GridZSize: 15
+  GridXSize: 10
+  GridZSize: 10
   TilePrefabs:
   - {fileID: 8006642840335797307, guid: 5a6f3c421da053948a1d959ee8c32d16, type: 3}
   - {fileID: 8006642840335797307, guid: c2ba2de1f7f3cf849ad501b818af4816, type: 3}
@@ -60,3 +61,27 @@ MonoBehaviour:
   - {fileID: 8006642840335797307, guid: c6cd545a71e88c244af78d1a1df96155, type: 3}
   - {fileID: 8006642840335797307, guid: ec367457946c1e44d9c11369108b94e8, type: 3}
   AllTiles: []
+--- !u!114 &8570731386805299799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496272791825034492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21ea6f4b633cf84082a642518065306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OceanTileNames:
+  - Warm, sunny waters
+  - Sharky waters
+  PirateTileNames:
+  - Cocount Docks
+  - Blackbeard Bay
+  RoyalTileNames:
+  - Port Royale
+  - New Heamersworth
+  IslandTileNames:
+  - Aruba
+  - Key Largo
