@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
+    #region Singleton
+    private static ResourceManager instance;
+    public static ResourceManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindAnyObjectByType(typeof(ResourceManager)) as ResourceManager;
+            return instance;
+        }
+        set
+        {
+            instance = value;
+        }
+    }
+    #endregion
+
     // Serialized fields to set the initial values for different resources in the Unity Inspector.
     [SerializeField] int startingReputation = 0;
     [SerializeField] int startingGold = 100;
