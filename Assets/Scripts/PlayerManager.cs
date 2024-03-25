@@ -61,6 +61,11 @@ public class PlayerManager : MonoBehaviour
     {
         MovePlayer(3);
     }
+    public void DontMovePlayer()
+    {
+        UIManager.Instance.Popup.SetActive(true);
+        UIManager.Instance.SetUpPopup("Fair enough, cap'n.", "Staying here is a good an option as any.", 0);
+    }
     /// <summary>
     /// The eight indexes of TSP are arranged as a Matrix 
     /// [0] [1] [2]

@@ -35,10 +35,11 @@ public class UIManager : MonoBehaviour
     public Slider Gold;
     public Slider Crew;
     public Slider ShipHealth;
+    public int InputFieldNum = 0;
 
     public void Start()
     {
-
+        InputFieldNum = 0;
     }
     /// <summary>
     /// BoxesToShow: 0 is yes/ok. 1 is yes+no. 2 is yes/ok+input
@@ -71,15 +72,20 @@ public class UIManager : MonoBehaviour
     }
     public void ReadInputAsInt(string input)
     {
+        InputFieldNum = 0;
         int parsedNumber;
         if (int.TryParse(input, out parsedNumber))
         {
-            print("Parsed integer: " + parsedNumber);
+            if(parsedNumber*ResourceManager.Instance.goldPerHealthFix < ResourceManager.Instance.goldAmount && ResourceManager.Instance.crewAmount > 4)
+            {
+                Yes.interactable = true;
+                InputFieldNum = parsedNumber;
+            }
         }
         else
         {
-            print("INPUT A NUMBER");
-
+            PopupInputField.text = "";
+            Yes.interactable = false;
         }
     }
     public void ToggleCompassButtons(bool toggle)

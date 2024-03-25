@@ -87,14 +87,28 @@ public class GameController : MonoBehaviour
     }
     IEnumerator Sailing()
     {
+        buttonChoice = 2;
+        print("SAILING STATE");
         UIManager.Instance.ToggleCompassButtons(true);
         while (state == GameState.Sailing)
         {
+            switch (buttonChoice)
+            {
+                case 0:
+                    break;
+                case 1:
+                    GSM(GameState.Interacting);
+                    break;
+                default:
+                    break;
+            }
             yield return null;
         }
     }
     IEnumerator Interacting()
     {
+        buttonChoice = 2;
+        print("INTERACTINGSTATE");
         UIManager.Instance.ToggleCompassButtons(false);
         var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
         if (tile.HasInteractable)
@@ -110,32 +124,45 @@ public class GameController : MonoBehaviour
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup(tile.ToSeparatedString(tile.type) + ", ahead!", tile.description, 1);
         }
+        else
+        {
+            var popup = UIManager.Instance.Popup;
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup(tile.ToSeparatedString(tile.type) + ", ahead!", tile.description, 0);
+        }
         while(state == GameState.Interacting)
         {
             switch (buttonChoice)
             {
                 case 0:
 
-                    if (CatchPlayerChance(tile.Interactable.GetComponent<Interactable>().CatchPlayerChance))
+                    if(tile.Interactable != null)
                     {
-                        tile.HasInteractable = false;
-                        tile.Interactable = null;
-                        GSM(GameState.Resting);
+                        //If we catch the player
+                        if (CatchPlayerChance(tile.Interactable.GetComponent<Interactable>().CatchPlayerChance))
+                        {
+                            tile.HasInteractable = false;
+                            tile.Interactable = null;
+                            GSM(GameState.Resting);
+                        }
+                        //Otherwise the player escapes
+                        else
+                        {
+                            tile.HasInteractable = false;
+                            tile.Interactable = null;
+                            GSM(GameState.Resting);
+                        }
                     }
-                    else
-                    {
-                        tile.HasInteractable = false;
-                        tile.Interactable = null;
-                        GSM(GameState.Resting);
-                    }
+                    GSM(GameState.Resting);
                     break;
                 case 1:
+                    //If the player chooses to fight
                     tile.HasInteractable = false;
                     tile.Interactable = null;
                     GSM(GameState.Resting);
                     break;
-                default:
-                    GSM(GameState.Resting);
+                case 2:
+                    //If no option clicked (player is deciding)
                     break;
             }
             yield return null;
@@ -143,6 +170,20 @@ public class GameController : MonoBehaviour
     }
     IEnumerator Resting()
     {
+        buttonChoice = 2;
+        print("RESTINGSTATE");
+
+        var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
+        var popup = UIManager.Instance.Popup;
+        var rm = ResourceManager.Instance;
+        popup.SetActive(true);
+        UIManager.Instance.SetUpPopup("time to rest, captain.",
+            "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It takes 4 crewmates and costs 100 gold to " +
+            "repair 1 point of ship health." + "                                                                                           " +
+            "Our ship's health is " + ResourceManager.Instance.healthAmount + "                                                                        " + 
+            "How much health do you repair, cap'n?", 2) ;
+        UIManager.Instance.Yes.interactable = false;
+
         while (state == GameState.Resting)
         {
             switch (buttonChoice)
@@ -150,6 +191,8 @@ public class GameController : MonoBehaviour
                 case 0:
                     break;
                 case 1:
+                    ResourceManager.Instance.AdjustHealth(UIManager.Instance.InputFieldNum);
+                    ResourceManager.Instance.AdjustGold(-UIManager.Instance.InputFieldNum*ResourceManager.Instance.goldPerHealthFix);
                     break;
                 default:
                     break;

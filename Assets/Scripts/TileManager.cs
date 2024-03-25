@@ -38,10 +38,10 @@ public class TileManager : MonoBehaviour
         {
             InitializeMap();
         }
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("EliScene");
-        }
+        //if(Input.GetKeyDown(KeyCode.R))
+        //{
+        //    SceneManager.LoadScene("EliScene");
+        //}
     }
     public void InitializeMap()
     {

@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     [HideInInspector] public string description;
     public enum InteractableType
     {
-        RoyalGalleon, Merchant, Pirate, Kracken, SeaSerpent, DavyJones, Megalodon
+        RoyalGalleon, Brigantine, Merchant, Pirate, Kracken, SeaSerpent, DavyJones, Megalodon
     }
 
     /// <summary>

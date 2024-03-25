@@ -28,10 +28,7 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] int startingCrew = 10;
 
     // Variables to store the current amounts of different resources.
-    [SerializeField] private int reputationAmount;
-    [SerializeField] private int goldAmount;
-    [SerializeField] private int healthAmount;
-    [SerializeField] private int crewAmount;
+    public int reputationAmount, goldAmount, healthAmount, crewAmount, goldPerHealthFix=100;
 
     // Variables to store maximum and minimum values for certain resources
 
@@ -41,7 +38,7 @@ public class ResourceManager : MonoBehaviour
     // Constants to define the minimum and maximum values for certain resources.
     
     private const int maxHealth = 100;
-    public UIManager uiManager;
+    //public UIManager uiManager;
 
     private void Start()
     {
@@ -146,9 +143,9 @@ public class ResourceManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        uiManager.Reputation.value = reputationAmount;
-        uiManager.Gold.value = goldAmount;
-        uiManager.Crew.value = crewAmount;
-        uiManager.ShipHealth.value = healthAmount;
+        UIManager.Instance.Reputation.value = reputationAmount;
+        UIManager.Instance.Gold.value = goldAmount;
+        UIManager.Instance.Crew.value = crewAmount;
+        UIManager.Instance.ShipHealth.value = healthAmount;
     }
 }
