@@ -31,6 +31,10 @@ public class UIManager : MonoBehaviour
     public TMP_InputField PopupInputField;
     public Button Yes;
     public Button No;
+    public Slider Reputation;
+    public Slider Gold;
+    public Slider Crew;
+    public Slider ShipHealth;
 
     public void Start()
     {

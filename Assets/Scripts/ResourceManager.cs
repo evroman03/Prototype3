@@ -41,6 +41,7 @@ public class ResourceManager : MonoBehaviour
     // Constants to define the minimum and maximum values for certain resources.
     
     private const int maxHealth = 100;
+    public UIManager uiManager;
 
     private void Start()
     {
@@ -55,6 +56,7 @@ public class ResourceManager : MonoBehaviour
         goldAmount = startingGold;
         healthAmount = startingHealth;
         crewAmount = startingCrew;
+        UpdateUI();
     }
 
     // Method to log the current values of different resources.
@@ -84,6 +86,7 @@ public class ResourceManager : MonoBehaviour
                 Debug.Log("Your reputation is: " + reputationAmount);
             }
         }
+        UpdateUI();
     }
 
     // Method to adjust the amount of gold by a specified amount.
@@ -104,6 +107,7 @@ public class ResourceManager : MonoBehaviour
             goldAmount += amount;
             Debug.Log("You now have " + goldAmount + " gold");
         }
+        UpdateUI();
     }
 
     // Method to adjust the health by a specified amount.
@@ -120,6 +124,7 @@ public class ResourceManager : MonoBehaviour
         {
             Debug.Log("You now have " + healthAmount + " health");
         }
+        UpdateUI();
     }
 
     // Method to adjust the number of crew members by a specified amount.
@@ -136,5 +141,14 @@ public class ResourceManager : MonoBehaviour
         {
             Debug.Log("You now have " + crewAmount + " crew");
         }
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        uiManager.Reputation.value = reputationAmount;
+        uiManager.Gold.value = goldAmount;
+        uiManager.Crew.value = crewAmount;
+        uiManager.ShipHealth.value = healthAmount;
     }
 }
