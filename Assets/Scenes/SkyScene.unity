@@ -246,14 +246,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee187cb4f4d5ab459814c91513998b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reputationAmount: 39
-  goldAmount: 71
-  healthAmount: 48
-  crewAmount: 12
-  reputationChange: 10
-  goldChange: -85
-  healthChange: -53
-  crewChange: -27
+  startingReputation: 0
+  startingGold: 100
+  startingHealth: 100
+  startingCrew: 10
+  reputationAmount: 0
+  goldAmount: 0
+  healthAmount: 0
+  crewAmount: 0
+  maxGold: 10000
+  maxReputation: 10000
 --- !u!4 &564707576
 Transform:
   m_ObjectHideFlags: 0
