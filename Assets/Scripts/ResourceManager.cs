@@ -28,14 +28,18 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] int startingCrew = 10;
 
     // Variables to store the current amounts of different resources.
-    [SerializeField]  private int reputationAmount;
+    [SerializeField] private int reputationAmount;
     [SerializeField] private int goldAmount;
     [SerializeField] private int healthAmount;
     [SerializeField] private int crewAmount;
 
+    // Variables to store maximum and minimum values for certain resources
+
+    [SerializeField] private int maxGold = 10000;
+    [SerializeField] int maxReputation = 10000;
+
     // Constants to define the minimum and maximum values for certain resources.
-    private const int minReputation = -100;
-    private const int maxReputation = 100;
+    
     private const int maxHealth = 100;
 
     private void Start()
@@ -66,16 +70,12 @@ public class ResourceManager : MonoBehaviour
     public void AdjustReputation(int amount)
     {
         // Clamps the new reputation value between minReputation and maxReputation.
-        int newReputation = Mathf.Clamp(reputationAmount + amount, minReputation, maxReputation);
+        int newReputation = Mathf.Clamp(reputationAmount + amount, 0, maxReputation);
         // If the reputation has changed, update it and log appropriate messages.
         if (newReputation != reputationAmount)
         {
             reputationAmount = newReputation;
-            if (newReputation == minReputation)
-            {
-                Debug.Log("Your reputation has reached minimum (" + minReputation + ")");
-            }
-            else if (newReputation == maxReputation)
+            if (newReputation == maxReputation)
             {
                 Debug.Log("Your reputation has reached maximum (" + maxReputation + ")");
             }
@@ -93,6 +93,10 @@ public class ResourceManager : MonoBehaviour
         if (goldAmount + amount < 0)
         {
             Debug.Log("You do not have enough gold to perform this action.");
+        }
+        else if(goldAmount + amount >= maxGold)
+        {
+            Debug.Log("You are now the richest pirate in all of the land");
         }
         else
         {
