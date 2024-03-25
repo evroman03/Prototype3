@@ -104,6 +104,12 @@ public class GameController : MonoBehaviour
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup(temp.ToSeparatedString(temp.type)+" Sighted", temp.description, 1);
         }
+        else if (!tile.HasInteractable && (tile.type == Tile.TileType.RoyalPort || tile.type == Tile.TileType.Island))
+        {
+            var popup = UIManager.Instance.Popup;
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup(tile.ToSeparatedString(tile.type) + ", ahead!", tile.description, 1);
+        }
         while(state == GameState.Interacting)
         {
             switch (buttonChoice)
@@ -129,6 +135,7 @@ public class GameController : MonoBehaviour
                     GSM(GameState.Resting);
                     break;
                 default:
+                    GSM(GameState.Resting);
                     break;
             }
             yield return null;
@@ -136,14 +143,6 @@ public class GameController : MonoBehaviour
     }
     IEnumerator Resting()
     {
-        var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
-        if (tile.type == Tile.TileType.PirateCove || tile.type == Tile.TileType.Island )
-        {
-            var popup = UIManager.Instance.Popup;
-            popup.SetActive(true);
-            UIManager.Instance.SetUpPopup(tile.ToSeparatedString(tile.type) + ", land ho!", tile.description, 1);
-        }
-
         while (state == GameState.Resting)
         {
             switch (buttonChoice)

@@ -395,18 +395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  OceanTileNames:
-  - Warm waters
-  - Sharky waters
-  PirateTileNames:
-  - Blackbeard Bay
-  - Coconut Docks
-  RoyalTileNames:
-  - Port Royale
-  - 'New Heamersworth '
-  IslandTileNames:
-  - Yamiroqy
-  - Billogae
   type: 1
   Coordinates: {x: 0, y: 0, z: 0}
   Fog: {fileID: 958957820144220678}

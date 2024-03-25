@@ -716,6 +716,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 236807594}
+    - target: {fileID: 1934614205379997311, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1971109791331225445, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_Name
       value: UIManager
@@ -728,6 +732,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 236807594}
+    - target: {fileID: 3982997051866173833, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463813536000623860, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469047867164647071, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9169305694779239540, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
