@@ -24,39 +24,39 @@ public class IslandScriptEditor: Editor
                 tile.lootChance = EditorGUILayout.IntField(tile.lootChance, GUILayout.MaxWidth(50));
                 EditorGUILayout.EndHorizontal();
 
-                //SerializedProperty island = serializedObject.FindProperty("IslandTileNames");
-                //EditorGUILayout.PropertyField(island, true);
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Soldiers, natives, and beasts...");
+                tile.Hostiles = EditorGUILayout.IntField(tile.Hostiles, GUILayout.MaxWidth(50));
+                EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.BeginVertical();
                 EditorGUILayout.LabelField(new GUIContent("Island details", "Yeah i know the text field doesnt show up idk"));
-                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.wordWrappedLabel, GUILayout.Height(100));
+                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.textArea, GUILayout.Height(100));
                 EditorGUILayout.EndVertical();
                 break;
             case Tile.TileType.PirateCove:
-                //SerializedProperty pirate = serializedObject.FindProperty("PirateTileNames");
-                //EditorGUILayout.PropertyField(pirate, true);
 
                 EditorGUILayout.BeginVertical();
                 EditorGUILayout.LabelField(new GUIContent("Pirate Cove details", "Yeah i know the text field doesnt show up idk"));
-                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.wordWrappedLabel, GUILayout.Height(100));
+                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.textArea, GUILayout.Height(100));
                 EditorGUILayout.EndVertical();
                 break;
             case Tile.TileType.Ocean:
-                //SerializedProperty ocean = serializedObject.FindProperty("OceanTileNames");
-                //EditorGUILayout.PropertyField(ocean, true);
 
                 EditorGUILayout.BeginVertical();
                 EditorGUILayout.LabelField(new GUIContent("Ocean details", "Yeah i know the text field doesnt show up idk"));
-                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.wordWrappedLabel, GUILayout.Height(100));
+                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.textArea, GUILayout.Height(100));
                 EditorGUILayout.EndVertical();
                 break;
             case Tile.TileType.RoyalPort:
-                //SerializedProperty Port = serializedObject.FindProperty("RoyalTileNames");
-                //EditorGUILayout.PropertyField(Port, true);
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Soldiers, natives, and beasts...");
+                tile.Hostiles = EditorGUILayout.IntField(tile.Hostiles, GUILayout.MaxWidth(50));
+                EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.BeginVertical();
                 EditorGUILayout.LabelField(new GUIContent("Royal Port details", "Yeah i know the text field doesnt show up idk"));
-                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.wordWrappedLabel, GUILayout.Height(100));
+                tile.description = EditorGUILayout.TextArea(tile.description, EditorStyles.textArea, GUILayout.Height(100));
                 EditorGUILayout.EndVertical();
                 break;
         }

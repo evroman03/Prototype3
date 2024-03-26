@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     public Slider Gold;
     public Slider Crew;
     public Slider ShipHealth;
-    public int InputFieldNum = 0;
+    public int InputFieldNum;
 
     public void Start()
     {
@@ -53,14 +53,18 @@ public class UIManager : MonoBehaviour
         {
             case 0:
                 Yes.gameObject.SetActive(true);
+                PopupInputField.gameObject.SetActive(false);
+                No.gameObject.SetActive(false);
                 break;
             case 1:
                 Yes.gameObject.SetActive(true);
+                PopupInputField.gameObject.SetActive(false);
                 No.gameObject.SetActive(true);
                 break;
             case 2:
                 Yes.gameObject.SetActive(true);
                 PopupInputField.gameObject.SetActive(true);
+                No.gameObject.SetActive(false);
                 break;
         }
         PopupTitle.text = title;    
@@ -76,14 +80,16 @@ public class UIManager : MonoBehaviour
         int parsedNumber;
         if (int.TryParse(input, out parsedNumber))
         {
-            if(parsedNumber*ResourceManager.Instance.goldPerHealthFix < ResourceManager.Instance.goldAmount && ResourceManager.Instance.crewAmount > 4)
-            {
-                Yes.interactable = true;
-                InputFieldNum = parsedNumber;
-            }
+            //if((parsedNumber*ResourceManager.Instance.goldPerHealthFix < ResourceManager.Instance.goldAmount) && ResourceManager.Instance.crewAmount > 4)
+            //{
+            //    print(InputFieldNum);
+            //}
+            Yes.interactable = true;
+            InputFieldNum = parsedNumber;
         }
         else
         {
+            //PopupInputField.textComponent.color = new Color(255, 150, 150); //light red/pink
             PopupInputField.text = "";
             Yes.interactable = false;
         }

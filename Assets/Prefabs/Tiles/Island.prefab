@@ -364,18 +364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  OceanTileNames:
-  - Warm waters
-  - Sharky waters
-  PirateTileNames:
-  - Blackbeard Bay
-  - Coconut Docks
-  RoyalTileNames:
-  - Port Royale
-  - 'New Heamersworth '
-  IslandTileNames:
-  - Yamiroqy
-  - Billogae
   type: 0
   Coordinates: {x: 0, y: 0, z: 0}
   Fog: {fileID: 6686753385647914729}
@@ -385,7 +373,9 @@ MonoBehaviour:
   HasInteractable: 0
   lootAmount: 0
   lootChance: 0
-  description: 
+  description: The natives ne'r take kindly to bothersome outsiders; and there be
+    snakes wanting yer legs and 'gators yer boots. However, its sands may hide BOOTY
+    - a great treasure fer all the crew.  How many crew do we send ashore?
 --- !u!1 &8950395210862878176
 GameObject:
   m_ObjectHideFlags: 0

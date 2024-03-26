@@ -8,7 +8,7 @@ public class InteractableScripEditor : Editor
     {
         Interactable interactable = (Interactable)target;
         DrawDefaultInspector();
-        if(interactable.type == Interactable.InteractableType.Pirate || interactable.type == Interactable.InteractableType.RoyalGalleon || interactable.type == Interactable.InteractableType.Merchant)
+        if(interactable.type == Interactable.InteractableType.Brigantine || interactable.type == Interactable.InteractableType.RoyalGalleon || interactable.type == Interactable.InteractableType.Merchant)
         {
             EditorGUILayout.Space();
             EditorGUILayout.BeginHorizontal();
@@ -48,7 +48,7 @@ public class InteractableScripEditor : Editor
 
             EditorGUILayout.BeginVertical();
             EditorGUILayout.LabelField(new GUIContent("Popup Description", "Yeah i know the text field doesnt show up idk"));
-            interactable.description = EditorGUILayout.TextArea(interactable.description, EditorStyles.wordWrappedLabel, GUILayout.Height(100));
+            interactable.description = EditorGUILayout.TextArea(interactable.description, EditorStyles.textArea, GUILayout.Height(100));
             EditorGUILayout.EndVertical();
         }
     }

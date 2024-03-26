@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public string name;
+    public string Name;
 
     public enum TileType
     {
@@ -16,9 +16,8 @@ public class Tile : MonoBehaviour
     public GameObject Fog, Interactable;
     public bool HasFogOfWar = true, Visited=false, HasInteractable =false;
 
-    [HideInInspector] public int lootAmount;
-    [HideInInspector] public int lootChance;
-    [HideInInspector] public string description;
+    [HideInInspector] public int lootAmount, lootChance, Hostiles;
+    [SerializeField] public string description;
 
     public string ToSeparatedString(TileType value)
     {
@@ -43,16 +42,16 @@ public class Tile : MonoBehaviour
         switch(type)
         {
             case TileType.Island:
-                name = TileNameScript.Instance.IslandTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.IslandTileNames.Length)];
+                Name = TileNameScript.Instance.IslandTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.IslandTileNames.Length)];
                 break;
             case TileType.PirateCove:
-                name = TileNameScript.Instance.PirateTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.PirateTileNames.Length)];
+                Name = TileNameScript.Instance.PirateTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.PirateTileNames.Length)];
                 break;
             case TileType.RoyalPort:
-                name =TileNameScript.Instance.RoyalTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.RoyalTileNames.Length)];
+                Name =TileNameScript.Instance.RoyalTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.RoyalTileNames.Length)];
                 break;
             case TileType.Ocean:
-                name = TileNameScript.Instance.OceanTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.OceanTileNames.Length)];
+                Name = TileNameScript.Instance.OceanTileNames[UnityEngine.Random.Range(0, TileNameScript.Instance.OceanTileNames.Length)];
                 break;
         }
     }

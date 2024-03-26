@@ -820,6 +820,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 236807594}
+    - target: {fileID: 3982997051866173833, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7064082607793169704, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -892,6 +896,22 @@ PrefabInstance:
     - target: {fileID: 2496272791825034492, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_Name
       value: TileManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: OceanChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: RoyalPortChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: PirateCoveChance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8758853042896126218, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_LocalPosition.x

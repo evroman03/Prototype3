@@ -42,12 +42,12 @@ public class ResourceManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeResources();
-        CheckResources();
+        //InitializeResources();
+        //CheckResources();
     }
 
     // Method to initialize the resources with their starting values.
-    private void InitializeResources()
+    public void InitializeResources()
     {
         reputationAmount = startingReputation;
         goldAmount = startingGold;

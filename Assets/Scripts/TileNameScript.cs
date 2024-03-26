@@ -26,16 +26,16 @@ public class TileNameScript : MonoBehaviour
     public string[] RoyalTileNames = new string[0];
     public string[] IslandTileNames = new string[0];
     /*
-Yarr there be both prostitutes and mateys here. Also the carpeter and the surgeon are the same person. Anything's fer sale, as long as you have dabloons!
+Yarr there be both parrots and mateys here. Also the carpeter and the surgeon are the same person. Anything's fer sale, as long as you have dabloons!
 
 Should we send crew ashore?
 The steel of cannons glints off many a watchtower by the docks of this outpost, and the jolly skeletons of many a fellow pirate smile from signs to beware. However, we could steal precious hardware from this place, despite the risk. 
 
-Should we drop anchor and attempt a raid?
+Should we drop anchor and attempt a raid? How many crew should we send?
 
 The natives ne'r take kindly to bothersome outsiders; and there be snakes wanting yer legs and 'gators yer boots. However, its sands may hide BOOTY - a great treasure fer all the crew.
 
-Should we send crew ashore?
+How many crew do we send ashore?
 
 Arrr, true, cap'n. There be naught but the sound of waves and the smell of a salty breeze out here.
 

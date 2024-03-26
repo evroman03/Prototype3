@@ -34,10 +34,6 @@ public class TileManager : MonoBehaviour
     public List<GameObject> AllTiles = new List<GameObject>();
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            InitializeMap();
-        }
         //if(Input.GetKeyDown(KeyCode.R))
         //{
         //    SceneManager.LoadScene("EliScene");
