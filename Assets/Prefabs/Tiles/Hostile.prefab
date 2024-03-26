@@ -311,7 +311,6 @@ MonoBehaviour:
   HasInteractable: 0
   lootAmount: 0
   lootChance: 0
-  description: 
   description: The steel of cannons glints off many a watchtower by the docks of
     this outpost, and the jolly skeletons of many a fellow pirate smile from signs
     to beware. However, we could steal precious hardware from this place, despite
