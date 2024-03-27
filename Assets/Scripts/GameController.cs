@@ -278,7 +278,8 @@ public class GameController : MonoBehaviour
 
         int enemyRand = UnityEngine.Random.Range(3, 5);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
         int playerRand = UnityEngine.Random.Range(1, 3); //Possibility to be less punishing
-
+        print(enemyRand + "er");
+        print(playerRand + "pr");
         int dmgToPlayer = (enemy.Damage * (enemy.Manpower / enemyRand)) - ((rm.healthAmount / enemy.Damage) * (enemy.Manpower / enemyRand));
         int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.Health / rm.cannonCount) * (rm.crewAmount / playerRand)     
             * (int)(rm.reputationAmount*0.1f);
@@ -295,7 +296,7 @@ public class GameController : MonoBehaviour
         enemy.CatchPlayerChance /= 2;
 
         rm.AdjustCrew(-playerLosses);
-        rm.AdjustHealth(-dmgToPlayer);
+        rm.AdjustHealth(dmgToPlayer);
         rm.AdjustGold(lootGained);
         rm.AdjustReputation((enemyLosses / enemyRand) + enemy.RenownValue);
 
