@@ -372,7 +372,7 @@ MonoBehaviour:
   HasFogOfWar: 1
   Visited: 0
   HasInteractable: 0
-  lootAmount: 0
+  lootAmount: 80
   lootChance: 0
   Hostiles: 0
   description: The natives ne'r take kindly to bothersome outsiders; and there be

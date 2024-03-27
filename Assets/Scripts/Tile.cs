@@ -16,7 +16,7 @@ public class Tile : MonoBehaviour
     public GameObject Fog, Interactable;
     public bool HasFogOfWar = true, Visited=false, HasInteractable =false;
 
-    [HideInInspector] public int lootAmount, lootChance, Hostiles;
+    [SerializeField] public int lootAmount, lootChance, Hostiles;
     [SerializeField] public string description;
 
     public string ToSeparatedString(TileType value)

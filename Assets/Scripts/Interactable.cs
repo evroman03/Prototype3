@@ -5,7 +5,7 @@ public class Interactable : MonoBehaviour
 {
     public string Name;
     //[HideInInspector] public string title;
-    [HideInInspector] public string description;
+    [SerializeField] public string description;
     public enum InteractableType
     {
         RoyalGalleon, Brigantine, Merchant, Pirate, Kracken, SeaSerpent, DavyJones, Megalodon
