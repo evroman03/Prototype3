@@ -132,4 +132,4 @@ MonoBehaviour:
   ShipManpower: 16
   ShipLoot: 2000
   ShipRenownValue: 0
-  CatchPlayerChance: 10
+  CatchPlayerChance: 0
