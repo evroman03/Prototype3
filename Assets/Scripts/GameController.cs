@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -43,12 +44,13 @@ public class GameController : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C) && !startedGame)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            InitializeGame();
+            SceneManager.LoadScene(0);
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
+            Application.Quit();
         }
     }
     public void InitializeGame()
