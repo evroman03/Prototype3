@@ -35,6 +35,10 @@ public class UIManager : MonoBehaviour
     public Slider Gold;
     public Slider Crew;
     public Slider ShipHealth;
+    public TMP_Text ReputationText;
+    public TMP_Text GoldText;
+    public TMP_Text CrewText;
+    public TMP_Text HealthText;
     public int InputFieldNum;
 
     public void Start()

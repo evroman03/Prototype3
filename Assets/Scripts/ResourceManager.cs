@@ -34,6 +34,7 @@ public class ResourceManager : MonoBehaviour
 
     [SerializeField] private int maxGold = 10000;
     [SerializeField] int maxReputation = 10000;
+    [SerializeField] int maxCrew = 75;
 
     // Constants to define the minimum and maximum values for certain resources.
     
@@ -127,5 +128,9 @@ public class ResourceManager : MonoBehaviour
         UIManager.Instance.Gold.value = goldAmount;
         UIManager.Instance.Crew.value = crewAmount;
         UIManager.Instance.ShipHealth.value = healthAmount;
+        UIManager.Instance.ReputationText.text = reputationAmount + "/" + maxReputation;
+        UIManager.Instance.GoldText.text = goldAmount + "/" + maxGold;
+        UIManager.Instance.CrewText.text = crewAmount + "/" + maxCrew;
+        UIManager.Instance.HealthText.text = healthAmount + "/" + maxHealth;
     }
 }
