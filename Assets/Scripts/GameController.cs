@@ -440,13 +440,24 @@ public class GameController : MonoBehaviour
         var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
         var popup = UIManager.Instance.Popup;
         var rm = ResourceManager.Instance;
-        popup.SetActive(true);
-        UIManager.Instance.SetUpPopup("time to rest, captain.",
-            "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It takes 4 crewmates and costs 100 gold to " +
-            "repair 1 point of ship health." + "                                                                                           " +
-            "Our ship's health is " + rm.healthAmount + "                                                                        " + 
-            "How much health do you repair, cap'n?", 2) ;
-        UIManager.Instance.Yes.interactable = false;
+        if(tile.type == Tile.TileType.PirateCove)
+        {
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("We are near " + tile.Name,
+                "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It costs " + ResourceManager.Instance.goldPerCrew + 
+                " gold to hire 1 new crewmember. How many crew do you want to hire here, cap'n?" , 2);
+            UIManager.Instance.Yes.interactable = false;
+        }
+        else
+        {
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("Time to rest, captain.",
+                "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It takes 4 crewmates and costs " + 
+                ResourceManager.Instance.goldPerHealthFix + " gold to repair 1 point of ship health. Our ship's health is " + rm.healthAmount + "                                                                        " +
+                "How much health do you repair, cap'n?", 2);
+            UIManager.Instance.Yes.interactable = false;
+        }
+
 
         while (state == GameState.Resting)
         {
@@ -455,9 +466,18 @@ public class GameController : MonoBehaviour
                 case 0:
                     break;
                 case 1:
-                    ResourceManager.Instance.AdjustHealth(UIManager.Instance.InputFieldNum);
-                    ResourceManager.Instance.AdjustGold(-UIManager.Instance.InputFieldNum*ResourceManager.Instance.goldPerHealthFix);
-                    GSM(GameState.Event);
+                    if (tile.type == Tile.TileType.PirateCove)
+                    {
+                        ResourceManager.Instance.AdjustGold(-UIManager.Instance.InputFieldNum * ResourceManager.Instance.goldPerCrew);
+                        ResourceManager.Instance.AdjustCrew(UIManager.Instance.InputFieldNum);
+                        GSM(GameState.Event);
+                    }
+                    else
+                    {
+                        ResourceManager.Instance.AdjustHealth(UIManager.Instance.InputFieldNum);
+                        ResourceManager.Instance.AdjustGold(-UIManager.Instance.InputFieldNum * ResourceManager.Instance.goldPerHealthFix);
+                        GSM(GameState.Event);
+                    }
                     break;
                 default:
                     break;
