@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.25, z: 0.2}
+  m_LocalScale: {x: 0.3, y: 0.1, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: deb795ac19b544e42a86698d85c7c4fc, type: 2}
+  - {fileID: 2100000, guid: 768efbaa18c579248b9df4107f5be9db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,9 +127,9 @@ MonoBehaviour:
     Should
     we fight?'
   type: 2
-  ShipDamage: 10
-  ShipHealth: 100
-  ShipManpower: 28
-  ShipLoot: 0
+  ShipDamage: 6
+  ShipHealth: 50
+  ShipManpower: 16
+  ShipLoot: 2000
   ShipRenownValue: 0
-  CatchPlayerChance: 0
+  CatchPlayerChance: 10
