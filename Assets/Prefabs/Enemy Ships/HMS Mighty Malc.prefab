@@ -119,13 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Mighty Malc
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "This be a quick and nimble ship. It be known for stealin\u2019 booty
+    from other pirates...\n\nShould we fight?"
   type: 2
   Damage: 6
   Health: 50

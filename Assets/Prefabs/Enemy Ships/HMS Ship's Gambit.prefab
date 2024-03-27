@@ -119,13 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Ship's Gambit
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "The crew of this ship be known for takin\u2019 many a risk on the
+    seas. While this ship looks to be on the brink of sinkin\u2019, the crew is gambling
+    that they be able to take ye down with it...\n\nShould we fight?"
   type: 1
   Damage: 7
   Health: 75

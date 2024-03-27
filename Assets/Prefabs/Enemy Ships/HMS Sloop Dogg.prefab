@@ -119,13 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Sloop Dogg
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "Ye recall hearin\u2019 about this famous merchant ship while ye were
+    last on land. It has been said that this merchant ship knows never a silent moment,
+    singin\u2019 songs while workin\u2019 night and day...\n\nShould we fight?"
   type: 2
   Damage: 0
   Health: 0

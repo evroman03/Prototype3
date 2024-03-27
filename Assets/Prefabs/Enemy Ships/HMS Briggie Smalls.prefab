@@ -119,13 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Briggie Smalls
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "This be the smallest ship of the Brigantine class on these seas.
+    Don\u2019t let the size make ye a fool, for this may be a tough battle...\n\nShould
+    we fight?"
   type: 1
   Damage: 7
   Health: 75

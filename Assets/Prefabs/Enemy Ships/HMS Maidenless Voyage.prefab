@@ -119,13 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Maidenless Voyage
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "This ship's crew can often be heard singin\u2019 songs about their
+    loneliness. But don\u2019t let their somber attitude fool ye, for this be a fierce
+    ship built for battle...\n\nShould we fight?"
   type: 0
   Damage: 10
   Health: 100

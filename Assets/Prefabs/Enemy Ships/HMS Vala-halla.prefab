@@ -119,13 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Vala-halla
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "Many a pirate belittle this ship for it\u2019s orange and white sails.
+    And while it be a small ship, it has never known defeat, making it the most notorious
+    ship to ever sail the seas...\n\nShould we fight?"
   type: 0
   Damage: 10
   Health: 100

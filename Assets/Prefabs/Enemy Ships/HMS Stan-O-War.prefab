@@ -119,13 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Stan-O-War
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "Upon first look through yer spyglass, the first thing ye notice is
+    the triple gun decks on both sides of the ship. Prepare to spend most of yer
+    gold on ship repairs\u2026 if ye survive...\n\nShould we fight?"
   type: 0
   Damage: 10
   Health: 100

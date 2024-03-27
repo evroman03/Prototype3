@@ -119,13 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Atomizer
-  description: 'Bright flags wave, triple gun decks bristle along both sides - this
-    is a ship to be feared.  Escape is easy, for it be weighty and cumbersome; yet
-    no matter the size we still stand the chance of a glorious victory...
-
-
-    Should
-    we fight?'
+  description: "Many a pirate tremble upon hearin\u2019 this ship\u2019s name. But
+    as ye look upon it, ye notice it be a lowly merchant ship that pose little a
+    threat upon ye ship...\n\nShould we fight?"
   type: 2
   Damage: 6
   Health: 50
