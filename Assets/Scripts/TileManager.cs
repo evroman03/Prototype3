@@ -32,13 +32,10 @@ public class TileManager : MonoBehaviour
     [SerializeField] private int GridXSize, GridZSize;
     public List<GameObject> TilePrefabs = new List<GameObject>();
     public List<GameObject> AllTiles = new List<GameObject>();
-    float secondsToWait;
+    private float secondsToWait;
     public void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.R))
-        //{
-        //    SceneManager.LoadScene("EliScene");
-        //}
+
     }
     public void InitializeMap()
     {
@@ -64,6 +61,7 @@ public class TileManager : MonoBehaviour
                     temp.Coordinates = new Vector3(x, 0, z);
                     previousTile = randomTile;
                     AllTiles.Add(spawnedTile);
+                    EnemyManager.Instance.MBSpawnInteractable(temp);
                 }
             }
         }

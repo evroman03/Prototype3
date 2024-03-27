@@ -374,7 +374,7 @@ MonoBehaviour:
   HasInteractable: 0
   lootAmount: 2500
   lootChance: 70
-  Hostiles: 0
+  Hostiles: 10
   description: The natives ne'r take kindly to bothersome outsiders; and there be
     snakes wanting yer legs and 'gators yer boots. However, its sands may hide BOOTY
     - a great treasure fer all the crew.  How many crew do we send ashore?

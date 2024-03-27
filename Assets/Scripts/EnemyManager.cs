@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -20,25 +21,35 @@ public class EnemyManager : MonoBehaviour
         }
     }
     #endregion
-    public List<string> AllEnemyTypes = new List<string>();
+    public List<GameObject> EnemiesChooseFrom = new List<GameObject>();
     public List<GameObject> AllGalleons = new List<GameObject>();
     public List<GameObject> AllBrigantines = new List<GameObject>();
     public List<GameObject> AllMerchants = new List<GameObject>();
-    public int EnemySpawnChance =5, maxGalleons=1, maxBrigantines=2, maxMerchants=3;
+
+    public int EnemySpawnChance = 5, maxGalleons = 1, maxBrigantines = 2, maxMerchants = 3;
     private GameObject objToSpawn = null;
-    public void InitializeEnemyPlacements()
-    {   
-        //foreach(GameObject tile in TileManager.Instance.AllTiles)
-        //{
-        //    if (GameController.Instance.Chance100(EnemySpawnChance))
-        //    {
-        //        var temp = tile.GetComponent<Tile>();
-        //        temp.HasInteractable = true;
-
-        //        var shipType = UnityEngine.Random.Range(0, AllEnemyTypes.Count);
-        //        temp.Interactable = Instantiate(objToSpawn, temp.transform.GetChild(1).transform);
-
-        //    }
-        //}
+    public void InitializeEnemyList()
+    {
+        PopulateECF(maxMerchants, AllMerchants);
+        PopulateECF(maxBrigantines, AllBrigantines);
+        PopulateECF(maxGalleons, AllGalleons);
+    }
+    public void PopulateECF(int max, List<GameObject> data)
+    {
+        for(int i =0; i <= max; i++)
+        {
+            EnemiesChooseFrom.Add(data[UnityEngine.Random.Range(0, data.Count)]);
+        }
+    }
+    public void MBSpawnInteractable(Tile location)
+    {
+        if (GameController.Instance.Chance100(EnemySpawnChance))
+        {
+            List<GameObject> validEnemies = EnemiesChooseFrom.Where(enemy => enemy != null).ToList();
+            var index = UnityEngine.Random.Range(0, validEnemies.Count);
+            objToSpawn = validEnemies[index];
+            location.Interactable = Instantiate(objToSpawn, location.transform.GetChild(1).transform);
+            location.HasInteractable = true;
+        }
     }
 }

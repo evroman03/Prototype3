@@ -44,3 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bffc51a70afcb4fb411ce084ffb11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemiesChooseFrom: []
+  AllGalleons:
+  - {fileID: 6975229902083389795, guid: e2e6f547950188d4681be20df7db5bcd, type: 3}
+  - {fileID: 6975229902083389795, guid: 4702350d031f5f54fa0d87a3e36597f5, type: 3}
+  - {fileID: 6975229902083389795, guid: fe3295a54ba0b7d4d84aa6ea766d308e, type: 3}
+  AllBrigantines:
+  - {fileID: 6975229902083389795, guid: 4018a4a128917ef43b1dfd5c871b128a, type: 3}
+  - {fileID: 6975229902083389795, guid: 4097b043d023fb745af9501dd2932dc0, type: 3}
+  - {fileID: 6975229902083389795, guid: f6367cb941e4ae947beb2cf4a9bc4313, type: 3}
+  AllMerchants:
+  - {fileID: 6975229902083389795, guid: f9c478a68657b6f479a1d220b2a5515b, type: 3}
+  - {fileID: 6975229902083389795, guid: 56c7eba9dfef4b347adebcf47381ec80, type: 3}
+  - {fileID: 6975229902083389795, guid: d33cc901f13f18647bef42f05010fbcd, type: 3}
+  EnemySpawnChance: 10
+  maxGalleons: 2
+  maxBrigantines: 3
+  maxMerchants: 4

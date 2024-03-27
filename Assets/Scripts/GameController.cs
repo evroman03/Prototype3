@@ -56,9 +56,9 @@ public class GameController : MonoBehaviour
         turnNumber = 1;
         buttonChoice = 2;
         startedGame=true;
+        EnemyManager.Instance.InitializeEnemyList();
         TileManager.Instance.InitializeMap();
         ResourceManager.Instance.InitializeResources();
-        EnemyManager.Instance.InitializeEnemyPlacements();
     }
     public void GSM(GameState gamestate)
     {
@@ -303,10 +303,11 @@ public class GameController : MonoBehaviour
         {
             PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable = null;
             tile.HasInteractable = false;
+            tile.Interactable = null;
             popup.SetActive(true);
-            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We sunk the " + enemy.Name + ", a " + enemy.type + "to the briney depths. Though we lost " +
+            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We sunk the " + enemy.Name + ", a " + enemy.type + " to the briney depths. Though we lost " +
                 playerLosses + " mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. The burned hulk of the " + enemy.Name +
-                " and all " + enemy.Manpower+enemyLosses + " of its crew are in Davy Jones' locker, we be free to raid in the area to hearts' content.", 0);
+                " and all " + enemyLosses + " of its crew are in Davy Jones' locker, we be free to raid in the area to hearts' content.", 0);
         }
         //didnt sink the enemy but still "Won"
         else
@@ -381,7 +382,7 @@ public class GameController : MonoBehaviour
                 ResourceManager.Instance.AdjustCrew(-crewLostToIsland);
                 inputNum -= crewLostToIsland;
                 int hostilesLost = Mathf.Clamp((int)(inputNum * UnityEngine.Random.Range(1, 3) * (ResourceManager.Instance.reputationAmount * 0.1f)),
-                   crewLostToFort, tile.Hostiles);
+                   crewLostToIsland, tile.Hostiles);
                 tile.Hostiles -= hostilesLost;
 
                 if (inputNum <= 0) //everyone died
@@ -398,7 +399,7 @@ public class GameController : MonoBehaviour
                     tile.lootChance = Mathf.Clamp(tile.lootChance - 25, 0, tile.lootChance);
                     popup.SetActive(true);
                     UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToIsland + " crew raiding " + tile.Name + ", but found " + 
-                        goldGained +" gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + "people in the fight...", 0);
+                        goldGained +" gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + " people in the fight...", 0);
                     ResourceManager.Instance.AdjustGold(goldGained);
                     ResourceManager.Instance.AdjustReputation(goldGained/10);
                 }
