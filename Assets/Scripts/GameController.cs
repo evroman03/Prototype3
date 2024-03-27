@@ -232,12 +232,14 @@ public class GameController : MonoBehaviour
         var enemy = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>();
         var rm = ResourceManager.Instance;
 
-        int enemyRand = UnityEngine.Random.Range(3, 5); //More punishing
-        int playerRand = UnityEngine.Random.Range(1, 5); //Possibility to be less punishing
+        int enemyRand = UnityEngine.Random.Range(3, 5);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
+        int playerRand = UnityEngine.Random.Range(1, 3); //Possibility to be less punishing
+
         int dmgToPlayer = (enemy.ShipDamage * (enemy.ShipManpower / enemyRand)) - ((rm.healthAmount / enemy.ShipDamage) * (enemy.ShipManpower / enemyRand));
         int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.ShipHealth / rm.cannonCount) * (rm.crewAmount / playerRand)     * (int)(rm.reputationAmount*0.1f);
-        int enemyLosses = (rm.crewAmount * enemyRand);
-        //int playerLosses = 
+        
+        int enemyLosses = (rm.crewAmount * enemyRand * (int)(rm.reputationAmount * 0.1f));
+        int playerLosses = (enemy.ShipManpower * (int)(playerRand*0.5f));
 
         while (state == GameState.Fighting)
         {

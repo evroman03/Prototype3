@@ -49,6 +49,12 @@ public class IslandScriptEditor: Editor
                 EditorGUILayout.EndVertical();
                 break;
             case Tile.TileType.RoyalPort:
+
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Total Loot On Island");
+                tile.lootAmount = EditorGUILayout.IntField(tile.lootAmount, GUILayout.MaxWidth(50));
+                EditorGUILayout.EndHorizontal();
+
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField("Soldiers, natives, and beasts...");
                 tile.Hostiles = EditorGUILayout.IntField(tile.Hostiles, GUILayout.MaxWidth(50));
