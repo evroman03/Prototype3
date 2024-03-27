@@ -33,7 +33,7 @@ public class ResourceManager : MonoBehaviour
     // Variables to store maximum and minimum values for certain resources
 
     [SerializeField] private int maxGold = 10000;
-    [SerializeField] int maxReputation = 10000;
+    [SerializeField] int maxReputation = 100;
     [SerializeField] int maxCrew = 75;
 
     // Constants to define the minimum and maximum values for certain resources.
