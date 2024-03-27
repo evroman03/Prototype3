@@ -131,5 +131,5 @@ MonoBehaviour:
   ShipHealth: 75
   ShipManpower: 20
   ShipLoot: 4000
-  ShipRenownValue: 0
+  ShipRenownValue: 30
   CatchPlayerChance: 20
