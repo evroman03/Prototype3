@@ -58,6 +58,7 @@ public class GameController : MonoBehaviour
         startedGame=true;
         TileManager.Instance.InitializeMap();
         ResourceManager.Instance.InitializeResources();
+        EnemyManager.Instance.InitializeEnemyPlacements();
     }
     public void GSM(GameState gamestate)
     {
@@ -169,9 +170,9 @@ public class GameController : MonoBehaviour
                 case 0:
                     break;
                 case 1:
+                    GSM(GameState.Sailing);
                     break;
                 default:
-                    GSM(GameState.Sailing);
                     break;
             }
             yield return null;
