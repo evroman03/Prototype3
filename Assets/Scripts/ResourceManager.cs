@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ResourceManager : MonoBehaviour
 {
     #region Singleton
@@ -74,14 +74,6 @@ public class ResourceManager : MonoBehaviour
         if (newReputation != reputationAmount)
         {
             reputationAmount = newReputation;
-            if (newReputation == maxReputation)
-            {
-                Debug.Log("Your reputation has reached maximum (" + maxReputation + ")");
-            }
-            else
-            {
-                Debug.Log("Your reputation is: " + reputationAmount);
-            }
         }
         UpdateUI();
     }
@@ -93,10 +85,6 @@ public class ResourceManager : MonoBehaviour
         if (goldAmount + amount < 0)
         {
             Debug.Log("You do not have enough gold to perform this action.");
-        }
-        else if(goldAmount + amount >= maxGold)
-        {
-            Debug.Log("You are now the richest pirate in all of the land");
         }
         else
         {
@@ -112,15 +100,6 @@ public class ResourceManager : MonoBehaviour
     {
         // Clamps the health within the range of 0 to maxHealth to prevent negative health.
         healthAmount = Mathf.Clamp(healthAmount + amount, 0, maxHealth); //ensures health will never go below 0
-        // Log death message or the new health amount.
-        if (healthAmount == 0)
-        {
-            Debug.Log("You have died");
-        }
-        else
-        {
-            Debug.Log("You now have " + healthAmount + " health");
-        }
         UpdateUI();
     }
 
@@ -129,20 +108,21 @@ public class ResourceManager : MonoBehaviour
     {
         // Ensures the crew count doesn't go below 0.
         crewAmount = Mathf.Max(crewAmount + amount, 0);
-        // Log all crew lost or the new crew count.
-        if (crewAmount == 0)
-        {
-            Debug.Log("You have lost all your crew");
-        }
-        else
-        {
-            Debug.Log("You now have " + crewAmount + " crew");
-        }
         UpdateUI();
     }
 
     public void UpdateUI()
     {
+        if (healthAmount <= 0 || crewAmount <= 0)
+        {
+            //Go to lose screen
+            SceneManager.LoadScene(3);
+        }
+        else if (reputationAmount >= maxReputation || goldAmount >= maxGold)
+        {
+            //Go to win screen
+            SceneManager.LoadScene(2);
+        }
         UIManager.Instance.Reputation.value = reputationAmount;
         UIManager.Instance.Gold.value = goldAmount;
         UIManager.Instance.Crew.value = crewAmount;

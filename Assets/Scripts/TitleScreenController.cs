@@ -15,6 +15,7 @@ public class TitleScreenController : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(1);
+        GameController.Instance.InitializeGame();
     }
     public void OpenHowToPlay()
     {
