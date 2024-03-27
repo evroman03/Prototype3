@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5919325342670522225
 Transform:
   m_ObjectHideFlags: 0
@@ -278,6 +278,7 @@ Transform:
   - {fileID: 5791179908142460676}
   - {fileID: 5919325342670522225}
   - {fileID: 7966456215643305126}
+  - {fileID: 6655960796893771482}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1757569682807578995
@@ -363,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f61e900bb3f6e543be84145fcdfcb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  Name: 
   type: 0
   Coordinates: {x: 0, y: 0, z: 0}
   Fog: {fileID: 6686753385647914729}
@@ -373,6 +374,7 @@ MonoBehaviour:
   HasInteractable: 0
   lootAmount: 0
   lootChance: 0
+  Hostiles: 0
   description: The natives ne'r take kindly to bothersome outsiders; and there be
     snakes wanting yer legs and 'gators yer boots. However, its sands may hide BOOTY
     - a great treasure fer all the crew.  How many crew do we send ashore?
@@ -407,3 +409,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8889294659135077473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6616914203611107633
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8889294659135077473}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+      propertyPath: m_Name
+      value: Island
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+--- !u!4 &6655960796893771482 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65b14a8850babd545b042be025fceec6, type: 3}
+  m_PrefabInstance: {fileID: 6616914203611107633}
+  m_PrefabAsset: {fileID: 0}
