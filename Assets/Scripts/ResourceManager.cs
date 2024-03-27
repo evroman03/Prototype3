@@ -114,15 +114,23 @@ public class ResourceManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        if (healthAmount <= 0 || crewAmount <= 0)
+        if (reputationAmount >= maxReputation)
+        {
+            //Go to win screen
+            SceneManager.LoadScene(2);
+        }
+        else if (goldAmount >= maxGold)
         {
             //Go to lose screen
             SceneManager.LoadScene(3);
         }
-        else if (reputationAmount >= maxReputation || goldAmount >= maxGold)
+        else if (crewAmount <= 0)
         {
-            //Go to win screen
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(4);
+        }
+        else if (healthAmount <= 0)
+        {
+            SceneManager.LoadScene(5);
         }
         UIManager.Instance.Reputation.value = reputationAmount;
         UIManager.Instance.Gold.value = goldAmount;

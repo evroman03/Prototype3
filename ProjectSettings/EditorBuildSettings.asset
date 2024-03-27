@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/PlaytestScene.unity
     guid: d42d96ef322fd954ebb53cfd36bab143
   - enabled: 1
-    path: Assets/Scenes/WinScene.unity
+    path: Assets/Scenes/RepWinScene.unity
     guid: 4d492df7ac261934f81a9dc2c5209b7f
   - enabled: 1
-    path: Assets/Scenes/LoseScene.unity
+    path: Assets/Scenes/GoldWInScene.unity
+    guid: cca030a73fc9c974aa888e99965b1608
+  - enabled: 1
+    path: Assets/Scenes/CrewLoseScene.unity
     guid: fa303271a0a025247a85ed0e8247fc7f
+  - enabled: 1
+    path: Assets/Scenes/HealthLoseScene.unity
+    guid: 75f4ff1c403132044b1ab05924809a49
   m_configObjects: {}
