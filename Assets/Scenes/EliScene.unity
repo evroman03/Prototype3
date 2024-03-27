@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -804,10 +804,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1971109791331225445, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2790623669788754802, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -820,22 +816,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 236807594}
-    - target: {fileID: 3682742302461426880, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_MaxValue
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 3816096433113833358, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 236807594}
-    - target: {fileID: 3982997051866173833, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6732752610261088275, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_MaxValue
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 7064082607793169704, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -851,10 +835,6 @@ PrefabInstance:
     - target: {fileID: 8776632255972959297, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8956088277341792785, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9169305694779239540, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -912,22 +892,6 @@ PrefabInstance:
     - target: {fileID: 2496272791825034492, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_Name
       value: TileManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: OceanChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: IslandChance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: RoyalPortChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583145156122294174, guid: cf974395b11311a41852d742b8294c93, type: 3}
-      propertyPath: PirateCoveChance
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8758853042896126218, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_LocalPosition.x

@@ -25,8 +25,8 @@ public class GameController : MonoBehaviour
         }
     }
     #endregion
-    private Coroutine currentState = null;
-    public int buttonChoice=2;
+    private Coroutine currentState;
+    [HideInInspector] public int turnNumber, buttonChoice;
     [HideInInspector] public bool startedGame;
     public enum GameState
     {
@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
         startedGame = false;
         currentState = StartCoroutine(DummyCoroutine());
         UIManager.Instance.ToggleCompassButtons(false);
+        InitializeGame();
     }
     private void Update()
     {
@@ -52,47 +53,69 @@ public class GameController : MonoBehaviour
     }
     public void InitializeGame()
     {
+        turnNumber = 1;
+        buttonChoice = 2;
         startedGame=true;
         TileManager.Instance.InitializeMap();
         ResourceManager.Instance.InitializeResources();
-        GSM(GameState.BeginTurn);
     }
     public void GSM(GameState gamestate)
     {
         switch(gamestate)
         {
             case GameState.BeginTurn:
-                StopCoroutine(currentState);
+                if (currentState != null)
+                {
+                    StopCoroutine(currentState);
+                }
                 state = GameState.BeginTurn;
                 currentState = StartCoroutine(BeginTurn());
                 break;
             case GameState.Sailing:
-                StopCoroutine(currentState);
+                if (currentState != null)
+                {
+                    StopCoroutine(currentState);
+                }
                 state = GameState.Sailing;
                 currentState = StartCoroutine(Sailing());
                 break;
             case GameState.Interacting:
-                StopCoroutine(currentState);
-                state=GameState.Interacting;
+                if (currentState != null)
+                {
+                    StopCoroutine(currentState);
+                }
+                state =GameState.Interacting;
                 currentState = StartCoroutine(Interacting());
                 break;
             case GameState.Fighting:
-                StopCoroutine(currentState);
-                state=GameState.Fighting;
+                if (currentState != null)
+                {
+                    StopCoroutine(currentState);
+                }
+                state =GameState.Fighting;
                 currentState = StartCoroutine(Fighting());
                 break;
             case GameState.Raiding:
-                StopCoroutine(currentState);
-                state=GameState.Raiding;
+                if (currentState != null)
+                {
+                    StopCoroutine(currentState);
+                }
+                state =GameState.Raiding;
                 currentState = StartCoroutine(Raiding());
                 break;
             case GameState.Resting:
-                StopCoroutine(currentState);
-                state=GameState.Resting;
+                if (currentState != null)
+                {
+                    StopCoroutine(currentState);
+                }
+                state =GameState.Resting;
                 currentState = StartCoroutine(Resting());
                 break;
             case GameState.Event:
-                StopCoroutine(currentState);
+                if(currentState != null)
+                {
+                    StopCoroutine(currentState);
+                }
                 state=GameState.Event;
                 currentState = StartCoroutine(Event());
                 break;
@@ -116,6 +139,29 @@ public class GameController : MonoBehaviour
     {
         buttonChoice = 2;
         print("BEGINSTATE");
+        var popup = UIManager.Instance.Popup;
+        var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
+        if (tile.HasInteractable)
+        {
+            var temp = tile.Interactable.GetComponent<Interactable>();
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("Cap'n's Log: Day " + turnNumber, "A new day starts here in " + tile.Name + ", but unfortunately we share " +
+                "these waters with the cursed " + temp.Name + "; we should set sail fer new coasts or drive their cursed vessel to the watery bottom.", 0);
+        }
+        else if(tile.type != Tile.TileType.Ocean)
+        {
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("Cap'n's Log: Day " + turnNumber, "A new day starts here in "+ tile.Name + " and we could resolve " +
+                "unfinished business here if ye think it best to stay. But avast, cap'n, thar will be treasure that awaits in unmapped waters...",0);
+        }
+        else
+        {
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("Cap'n's Log: Day " + turnNumber, "A new day starts here in " + tile.Name + " and we should probably " +
+                "move to new seas, lest we be cursed with the presence of the Kraken.", 0);
+        }
+
+
         while (state == GameState.BeginTurn)
         {
             switch (buttonChoice)
@@ -157,22 +203,20 @@ public class GameController : MonoBehaviour
         print("INTERACTINGSTATE");
         UIManager.Instance.ToggleCompassButtons(false);
         var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
+        var popup = UIManager.Instance.Popup;
         if (tile.HasInteractable)
         {
-            var popup = UIManager.Instance.Popup;
             var temp = tile.Interactable.GetComponent<Interactable>();
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup(temp.ToSeparatedString(temp.type)+" Sighted", temp.description, 1);
         }
         else if (!tile.HasInteractable && (tile.type == Tile.TileType.RoyalPort || tile.type == Tile.TileType.Island))
         {
-            var popup = UIManager.Instance.Popup;
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup(tile.ToSeparatedString(tile.type) + ", ahead!", tile.description, 2);
         }
         else
         {
-            var popup = UIManager.Instance.Popup;
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup("Ahoy, " + tile.ToSeparatedString(tile.type) + " here.", tile.description, 0);
         }
@@ -192,7 +236,6 @@ public class GameController : MonoBehaviour
                         //Otherwise the player escapes, enable sailing and a popup.
                         else
                         {
-                            var popup = UIManager.Instance.Popup;
                             popup.SetActive(true);
                             UIManager.Instance.SetUpPopup("Escaped from the " + tile.Interactable.name, "Choose a direction to escape to, cap'n.", 0);
                             UIManager.Instance.ToggleCompassButtons(true);
@@ -231,13 +274,13 @@ public class GameController : MonoBehaviour
         var popup = UIManager.Instance.Popup;
         var enemy = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>();
         var rm = ResourceManager.Instance;
-        bool enemySunk = false;
 
         int enemyRand = UnityEngine.Random.Range(3, 5);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
         int playerRand = UnityEngine.Random.Range(1, 3); //Possibility to be less punishing
 
         int dmgToPlayer = (enemy.Damage * (enemy.Manpower / enemyRand)) - ((rm.healthAmount / enemy.Damage) * (enemy.Manpower / enemyRand));
-        int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.Health / rm.cannonCount) * (rm.crewAmount / playerRand)     * (int)(rm.reputationAmount*0.1f);
+        int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.Health / rm.cannonCount) * (rm.crewAmount / playerRand)     
+            * (int)(rm.reputationAmount*0.1f);
         
         int enemyLosses = (rm.crewAmount * enemyRand * (int)(rm.reputationAmount * 0.1f));
         int playerLosses = (enemy.Manpower * (int)(playerRand*0.5f));
@@ -257,16 +300,21 @@ public class GameController : MonoBehaviour
         //sank the enemy 
         if (enemy.CatchPlayerChance < 10 || enemy.Loot <= 0 ||  enemy.Health <= 0 || enemy.Manpower <= 10)
         {
-            enemySunk = true;
             PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable = null;
             tile.HasInteractable = false;
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We sunk the " + enemy.Name + ", a " + enemy.type + "to the briney depths. Though we lost " +
+                playerLosses + " mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. The burned hulk of the " + enemy.Name +
+                " and all " + enemy.Manpower+enemyLosses + " of its crew are in Davy Jones' locker, we be free to raid in the area to hearts' content.", 0);
         }
-
+        //didnt sink the enemy but still "Won"
         else
         {
-
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We beat the " + enemy.Name + ", a " + enemy.type + "in battle. Though we lost " + 
+                playerLosses +" mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. The battered " + enemy.Name + 
+                " still remains in this sea zone, (perhaps with some treasure we missed) so ye be warned if ye choose to stay here next morn'.", 0);
         }
-
 
         while (state == GameState.Fighting)
         {
@@ -311,8 +359,8 @@ public class GameController : MonoBehaviour
                     goldGained = (int)(tile.lootAmount / Mathf.Clamp(crewLostToFort, 1, crewLostToFort));
 
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToFort + " crew raiding " + tile.Name + ", but found " + goldGained + 
-                        " gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + "people in the fight...", 0);
+                    UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToFort + " crew raiding " + tile.Name + ", but found " + 
+                        goldGained + " gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + " people in the fight...", 0);
 
                     ResourceManager.Instance.AdjustReputation(hostilesLost*10);
                     ResourceManager.Instance.AdjustGold(goldGained);
@@ -338,7 +386,8 @@ public class GameController : MonoBehaviour
                 if (inputNum <= 0) //everyone died
                 {
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name + ". Our reputation definitely took a hit.", 0);
+                    UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name +
+                        ". Our reputation definitely took a hit.", 0);
                     ResourceManager.Instance.AdjustReputation(-crewLostToIsland);
                 }
                 else if(Chance100(tile.lootChance) && inputNum > 0) //some survived; found loot. You get reputation = 10th of gold
@@ -347,17 +396,22 @@ public class GameController : MonoBehaviour
                     tile.lootAmount = Mathf.Clamp(tile.lootAmount-goldGained, 0, tile.lootAmount);
                     tile.lootChance = Mathf.Clamp(tile.lootChance - 25, 0, tile.lootChance);
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToIsland + " crew raiding " + tile.Name + ", but found " + goldGained +
-                        " gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + "people in the fight...", 0);
+                    UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToIsland + " crew raiding " + tile.Name + ", but found " + 
+                        goldGained +" gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + "people in the fight...", 0);
                     ResourceManager.Instance.AdjustGold(goldGained);
                     ResourceManager.Instance.AdjustReputation(goldGained/10);
                 }
                 else //some survived; didnt find any loot
                 {
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Arrrg.", "We lost " + crewLostToIsland + " crew raiding " + tile.Name + ", but found no booty this time...", 0);
+                    UIManager.Instance.SetUpPopup("Arrrg.", "We lost " + crewLostToIsland + " crew raiding " + tile.Name + 
+                        ", but found no booty this time...", 0);
                 }
             }
+        }
+        else
+        {
+            GSM(GameState.Resting);
         }
 
         while (state == GameState.Raiding)
@@ -379,7 +433,6 @@ public class GameController : MonoBehaviour
     {
         buttonChoice = 2;
         print("RESTINGSTATE");
-
         var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
         var popup = UIManager.Instance.Popup;
         var rm = ResourceManager.Instance;
@@ -387,7 +440,7 @@ public class GameController : MonoBehaviour
         UIManager.Instance.SetUpPopup("time to rest, captain.",
             "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It takes 4 crewmates and costs 100 gold to " +
             "repair 1 point of ship health." + "                                                                                           " +
-            "Our ship's health is " + ResourceManager.Instance.healthAmount + "                                                                        " + 
+            "Our ship's health is " + rm.healthAmount + "                                                                        " + 
             "How much health do you repair, cap'n?", 2) ;
         UIManager.Instance.Yes.interactable = false;
 
@@ -421,6 +474,7 @@ public class GameController : MonoBehaviour
                 case 1:
                     break;
                 default:
+                    turnNumber += 1;
                     GSM(GameState.BeginTurn);
                     break;
             }

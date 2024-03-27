@@ -1317,6 +1317,7 @@ MonoBehaviour:
   Gold: {fileID: 2265475953815977166}
   Crew: {fileID: 3682742302461426880}
   ShipHealth: {fileID: 6732752610261088275}
+  InputFieldNum: 0
 --- !u!1 &2255843113844997602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,7 +3666,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8776632255972959297}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 75
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -4387,7 +4388,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7064082607793169704}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

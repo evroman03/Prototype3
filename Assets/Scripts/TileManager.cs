@@ -32,6 +32,7 @@ public class TileManager : MonoBehaviour
     [SerializeField] private int GridXSize, GridZSize;
     public List<GameObject> TilePrefabs = new List<GameObject>();
     public List<GameObject> AllTiles = new List<GameObject>();
+    float secondsToWait;
     public void Update()
     {
         //if(Input.GetKeyDown(KeyCode.R))
@@ -66,6 +67,12 @@ public class TileManager : MonoBehaviour
                 }
             }
         }
+        StartCoroutine(Holup());
+
+    }
+    IEnumerator Holup()
+    {
+        yield return new WaitForSeconds(1);
         MapInitialized?.Invoke(true);
     }
     public int TileChooser(int previousTile)

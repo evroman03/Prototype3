@@ -26,10 +26,11 @@ public class PlayerManager : MonoBehaviour
     public GameObject TilePlayerIsOn;
     public GameObject PlayerShip;
     public GameObject[] TilesSurroundingPlayer;
+    public bool initialized = false;
 
     void Start()
     {
-        TileManager.Instance.MapInitialized += InitializePlayer;  
+        TileManager.Instance.MapInitialized += InitializePlayer;
     }
     public void InitializePlayer(bool mapInitialized)
     {
@@ -42,6 +43,7 @@ public class PlayerManager : MonoBehaviour
             PlayerShip = Instantiate(PlayerShip, TilePlayerIsOn.transform.GetChild(0));
             TilesSurroundingPlayer = TileManager.Instance.GetSurroundingTiles(TilePlayerIsOn.GetComponent<Tile>());
             RevealFog();
+            GameController.Instance.GSM(GameController.GameState.BeginTurn);
         }
     }
 
