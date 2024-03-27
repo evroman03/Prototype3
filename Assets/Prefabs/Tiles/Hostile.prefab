@@ -298,9 +298,9 @@ MonoBehaviour:
   HasFogOfWar: 1
   Visited: 0
   HasInteractable: 0
-  lootAmount: 0
-  lootChance: 0
-  Hostiles: 0
+  lootAmount: 5000
+  lootChance: 90
+  Hostiles: 45
   description: The steel of cannons glints off many a watchtower by the docks of
     this outpost, and the jolly skeletons of many a fellow pirate smile from signs
     to beware. However, we could steal precious hardware from this place, despite
