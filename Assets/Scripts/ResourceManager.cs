@@ -28,7 +28,7 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] int startingCrew = 10;
 
     // Variables to store the current amounts of different resources.
-    public int reputationAmount, goldAmount, healthAmount, crewAmount, goldPerHealthFix=100;
+    public int reputationAmount, goldAmount, healthAmount, crewAmount, goldPerHealthFix=100, cannonCount;
 
     // Variables to store maximum and minimum values for certain resources
 

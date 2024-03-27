@@ -227,6 +227,18 @@ public class GameController : MonoBehaviour
     {
         buttonChoice = 2;
         print("FIGHTINGSTATE");
+        var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
+        var popup = UIManager.Instance.Popup;
+        var enemy = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>();
+        var rm = ResourceManager.Instance;
+
+        int enemyRand = UnityEngine.Random.Range(3, 5); //More punishing
+        int playerRand = UnityEngine.Random.Range(1, 5); //Possibility to be less punishing
+        int dmgToPlayer = (enemy.ShipDamage * (enemy.ShipManpower / enemyRand)) - ((rm.healthAmount / enemy.ShipDamage) * (enemy.ShipManpower / enemyRand));
+        int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.ShipHealth / rm.cannonCount) * (rm.crewAmount / playerRand)     * (int)(rm.reputationAmount*0.1f);
+        int enemyLosses = (rm.crewAmount * enemyRand);
+        //int playerLosses = 
+
         while (state == GameState.Fighting)
         {
             switch (buttonChoice)
@@ -261,35 +273,55 @@ public class GameController : MonoBehaviour
                 crewLostToFort = Mathf.Clamp((int)(tile.Hostiles * UnityEngine.Random.Range(1, 5f)), 1, inputNum);
                 ResourceManager.Instance.AdjustCrew(-crewLostToFort);
                 inputNum -= crewLostToFort;
-                if(inputNum > 0) //some survived
+                int hostilesLost = Mathf.Clamp((int)(inputNum * UnityEngine.Random.Range(1, 3) * (ResourceManager.Instance.reputationAmount * 0.1f)),
+                    crewLostToFort, tile.Hostiles);
+                tile.Hostiles -= hostilesLost;
+
+                if (inputNum > 0) //some survived
                 {
-                    goldGained = (int)(tile.lootAmount / crewLostToFort);
+                    goldGained = (int)(tile.lootAmount / Mathf.Clamp(crewLostToFort, 1, crewLostToFort));
+
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToFort + " crew raiding " + tile.Name + ", but found " + goldGained + " gold!", 0);
+                    UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToFort + " crew raiding " + tile.Name + ", but found " + goldGained + 
+                        " gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + "people in the fight...", 0);
+
+                    ResourceManager.Instance.AdjustReputation(hostilesLost*10);
+                    ResourceManager.Instance.AdjustGold(goldGained);
                 }
                 else //everyone died
                 {
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name + ". Better start looking fer more crew...", 0);
+                    ResourceManager.Instance.AdjustReputation(-(inputNum * 10));
+                    UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name + 
+                        ". Our reputation definitely took a hit.", 0);
                 }
+                tile.lootAmount -= goldGained;
             }
             else
             {
                 crewLostToIsland = Mathf.Clamp((int)(tile.Hostiles * UnityEngine.Random.Range(0, 1.01f)), 0, inputNum);
                 ResourceManager.Instance.AdjustCrew(-crewLostToIsland);
                 inputNum -= crewLostToIsland;
-                if(inputNum <= 0) //everyone died
+                int hostilesLost = Mathf.Clamp((int)(inputNum * UnityEngine.Random.Range(1, 3) * (ResourceManager.Instance.reputationAmount * 0.1f)),
+                   crewLostToFort, tile.Hostiles);
+                tile.Hostiles -= hostilesLost;
+
+                if (inputNum <= 0) //everyone died
                 {
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name + ". Better start looking fer more crew...", 0);
+                    UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name + ". Our reputation definitely took a hit.", 0);
+                    ResourceManager.Instance.AdjustReputation(-crewLostToIsland);
                 }
-                else if(Chance100(tile.lootChance) && inputNum > 0) //some survived; found loot
+                else if(Chance100(tile.lootChance) && inputNum > 0) //some survived; found loot. You get reputation = 10th of gold
                 { 
-                    goldGained = (int)(tile.lootAmount / crewLostToIsland);
+                    goldGained = (int)(tile.lootAmount / Mathf.Clamp(crewLostToIsland, 1, crewLostToIsland));
                     tile.lootAmount = Mathf.Clamp(tile.lootAmount-goldGained, 0, tile.lootAmount);
                     tile.lootChance = Mathf.Clamp(tile.lootChance - 25, 0, tile.lootChance);
                     popup.SetActive(true);
-                    UIManager.Instance.SetUpPopup("Success!", "We lost "+ crewLostToIsland + " crew raiding " + tile.Name + ", but found " + goldGained + " gold!", 0);
+                    UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToIsland + " crew raiding " + tile.Name + ", but found " + goldGained +
+                        " gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + "people in the fight...", 0);
+                    ResourceManager.Instance.AdjustGold(goldGained);
+                    ResourceManager.Instance.AdjustReputation(goldGained/10);
                 }
                 else //some survived; didnt find any loot
                 {

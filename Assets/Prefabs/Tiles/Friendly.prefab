@@ -406,8 +406,8 @@ MonoBehaviour:
   lootAmount: 0
   lootChance: 0
   Hostiles: 0
-  description: Yarr there be both prostitutes and mateys here. Also the carpeter
-    and the surgeon are the same person. Anything, as long as you have dabloons!
+  description: Yarr there be both parrots and mateys here. Also the carpeter and
+    the surgeon are the same person. Anything, as long as you have dabloons!
 --- !u!1001 &2395783989256787946
 PrefabInstance:
   m_ObjectHideFlags: 0
