@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
     public string Name;
     //[HideInInspector] public string title;
     [SerializeField] public string description;
+    public GameObject TileEnemyIsOn;
     public enum InteractableType
     {
         RoyalGalleon, Brigantine, Merchant, Pirate, Kracken, SeaSerpent, DavyJones, Megalodon

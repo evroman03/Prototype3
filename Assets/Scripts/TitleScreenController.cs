@@ -6,7 +6,6 @@ public class TitleScreenController : MonoBehaviour
 {
     [SerializeField] private GameObject HowToPlay;
     [SerializeField] private GameObject MenuButtons;
-    // Start is called before the first frame update
     void Start()
     {
         HowToPlay.SetActive(false);
@@ -15,7 +14,6 @@ public class TitleScreenController : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(1);
-        //GameController.Instance.InitializeGame();
     }
     public void OpenHowToPlay()
     {

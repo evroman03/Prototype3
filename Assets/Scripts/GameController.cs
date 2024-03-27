@@ -283,11 +283,12 @@ public class GameController : MonoBehaviour
         int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.Health / rm.cannonCount) * (rm.crewAmount / playerRand)     
             * (int)(rm.reputationAmount*0.1f);
         
-        int enemyLosses = (rm.crewAmount * enemyRand * (int)(rm.reputationAmount * 0.1f));
-        int playerLosses = (enemy.Manpower * (int)(playerRand*0.5f));
+        int enemyLosses = (rm.crewAmount * enemyRand * (int)((rm.reputationAmount * 0.1f) +1));
+        int playerLosses = (int)((enemy.Manpower * playerRand)*0.25f);
 
         int lootGained = enemy.Loot / (int)Mathf.Clamp((playerLosses * 0.5f), 1, (playerLosses * 0.5f));
 
+        print(dmgToPlayer + " " + playerLosses + " " + lootGained + " " + dmgToEnemy + " " + enemyLosses);
         enemy.Loot -= lootGained;
         enemy.Health -= dmgToEnemy;
         enemy.Manpower -= enemyLosses;
@@ -301,19 +302,20 @@ public class GameController : MonoBehaviour
         //sank the enemy 
         if (enemy.CatchPlayerChance < 10 || enemy.Loot <= 0 ||  enemy.Health <= 0 || enemy.Manpower <= 10)
         {
-            PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable = null;
+            EnemyManager.Instance.SpawnedEnemies.Remove(PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>());
+            Destroy(PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable);
             tile.HasInteractable = false;
             tile.Interactable = null;
             popup.SetActive(true);
-            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We sunk the " + enemy.Name + ", a " + enemy.type + " to the briney depths. Though we lost " +
-                playerLosses + " mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. The burned hulk of the " + enemy.Name +
-                " and all " + enemyLosses + " of its crew are in Davy Jones' locker, we be free to raid in the area to hearts' content.", 0);
+            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We sunk the " + enemy.Name + ", a " + enemy.type + ", to the briney depths. Though we lost " +
+                playerLosses + " mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. With the burned hulk of the " 
+                + enemy.Name +" and all " + enemyLosses + " of its crew are in Davy Jones' locker, we be free to raid in the area to hearts' content.", 0);
         }
         //didnt sink the enemy but still "Won"
         else
         {
             popup.SetActive(true);
-            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We beat the " + enemy.Name + ", a " + enemy.type + "in battle. Though we lost " + 
+            UIManager.Instance.SetUpPopup("Arrr, Victory!", "We beat the " + enemy.Name + ", a " + enemy.type + ", in battle. Though we lost " + 
                 playerLosses +" mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. The battered " + enemy.Name + 
                 " still remains in this sea zone, (perhaps with some treasure we missed) so ye be warned if ye choose to stay here next morn'.", 0);
         }
@@ -465,6 +467,7 @@ public class GameController : MonoBehaviour
     }
     IEnumerator Event()
     {
+        EnemyManager.Instance.HandleMoveEnemies();
         buttonChoice = 2;
         print("EVENTSTATE");
         while (state == GameState.Event)

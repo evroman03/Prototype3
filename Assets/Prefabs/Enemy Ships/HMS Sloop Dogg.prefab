@@ -122,10 +122,11 @@ MonoBehaviour:
   description: "Ye recall hearin\u2019 about this famous merchant ship while ye were
     last on land. It has been said that this merchant ship knows never a silent moment,
     singin\u2019 songs while workin\u2019 night and day...\n\nShould we fight?"
+  TileEnemyIsOn: {fileID: 6975229902083389795}
   type: 2
-  Damage: 0
-  Health: 0
-  Manpower: 0
-  Loot: 0
-  RenownValue: 0
+  Damage: 6
+  Health: 50
+  Manpower: 10
+  Loot: 1500
+  RenownValue: 10
   CatchPlayerChance: 0

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bffc51a70afcb4fb411ce084ffb11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnedEnemies: []
   EnemiesChooseFrom: []
   AllGalleons:
   - {fileID: 6975229902083389795, guid: e2e6f547950188d4681be20df7db5bcd, type: 3}
@@ -57,7 +58,7 @@ MonoBehaviour:
   - {fileID: 6975229902083389795, guid: f9c478a68657b6f479a1d220b2a5515b, type: 3}
   - {fileID: 6975229902083389795, guid: 56c7eba9dfef4b347adebcf47381ec80, type: 3}
   - {fileID: 6975229902083389795, guid: d33cc901f13f18647bef42f05010fbcd, type: 3}
-  EnemySpawnChance: 10
+  EnemySpawnChance: 15
   maxGalleons: 2
   maxBrigantines: 3
   maxMerchants: 4

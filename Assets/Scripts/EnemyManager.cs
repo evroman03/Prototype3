@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
     #endregion
+    public List<Interactable> SpawnedEnemies = new List<Interactable>();
     public List<GameObject> EnemiesChooseFrom = new List<GameObject>();
     public List<GameObject> AllGalleons = new List<GameObject>();
     public List<GameObject> AllBrigantines = new List<GameObject>();
@@ -50,6 +52,49 @@ public class EnemyManager : MonoBehaviour
             objToSpawn = validEnemies[index];
             location.Interactable = Instantiate(objToSpawn, location.transform.GetChild(1).transform);
             location.HasInteractable = true;
+
+
+            Interactable objInt = location.Interactable.GetComponent<Interactable>();
+            objInt.TileEnemyIsOn = objInt.transform.root.gameObject;
+
+            SpawnedEnemies.Add(objInt);
+        }
+    }
+    public void HandleMoveEnemies()
+    {
+        foreach(Interactable ntb in SpawnedEnemies)
+        {
+            int direction = UnityEngine.Random.Range(0, 9);
+            switch(direction)
+            {
+                case 0: //North 1
+                    MoveEnemy(1 , ntb);
+                    break;
+                case 1: //East 4
+                    MoveEnemy(4, ntb);
+                    break;
+                case 2: //South 6
+                    MoveEnemy(6, ntb);
+                    break;
+                case 3: //West 3
+                    MoveEnemy(3 , ntb);
+                    break;
+                default: //dont move. 50% chance
+                    break;
+            }
+        }
+    }
+    public void MoveEnemy(int direction, Interactable enemy)
+    {
+        GameObject[] tilesSurroundingEnemy = TileManager.Instance.GetSurroundingTiles(enemy.TileEnemyIsOn.GetComponent<Tile>());
+        if (tilesSurroundingEnemy[direction].GetComponent<Tile>().type != Tile.TileType.Border && !tilesSurroundingEnemy[direction].GetComponent<Tile>().HasInteractable)
+        {
+            enemy.TileEnemyIsOn.GetComponent<Tile>().HasInteractable = false;
+            enemy.TileEnemyIsOn.GetComponent<Tile>().Interactable = null;
+            enemy.TileEnemyIsOn = tilesSurroundingEnemy[direction];
+            enemy.TileEnemyIsOn.GetComponent<Tile>().HasInteractable = true;
+            enemy.TileEnemyIsOn.GetComponent<Tile>().Interactable = enemy.gameObject;
+            enemy.gameObject.transform.position = enemy.TileEnemyIsOn.transform.GetChild(1).transform.position;
         }
     }
 }
