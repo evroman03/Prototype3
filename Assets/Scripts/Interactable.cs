@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour
     }
     public InteractableType type;
 
-    [HideInInspector] public int ShipDamage, ShipHealth, ShipManpower, ShipLoot, ShipRenownValue, CatchPlayerChance;
+    [SerializeField] public int Damage, Health, Manpower, Loot, RenownValue, CatchPlayerChance;
     public void Start()
     {
         if(Name == null)

@@ -13,27 +13,27 @@ public class InteractableScripEditor : Editor
             EditorGUILayout.Space();
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Ship Cannon Count");
-            interactable.ShipDamage = EditorGUILayout.IntField(interactable.ShipDamage, GUILayout.MaxWidth(50));
+            interactable.Damage = EditorGUILayout.IntField(interactable.Damage, GUILayout.MaxWidth(50));
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Ship Health");
-            interactable.ShipHealth = EditorGUILayout.IntField(interactable.ShipHealth, GUILayout.MaxWidth(50));
+            interactable.Health = EditorGUILayout.IntField(interactable.Health, GUILayout.MaxWidth(50));
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Ship Manpower");
-            interactable.ShipManpower = EditorGUILayout.IntField(interactable.ShipManpower, GUILayout.MaxWidth(50));
+            interactable.Manpower = EditorGUILayout.IntField(interactable.Manpower, GUILayout.MaxWidth(50));
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Ship Loot");
-            interactable.ShipLoot = EditorGUILayout.IntField(interactable.ShipLoot, GUILayout.MaxWidth(50));
+            interactable.Loot = EditorGUILayout.IntField(interactable.Loot, GUILayout.MaxWidth(50));
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Ship Renown Value");
-            interactable.ShipRenownValue = EditorGUILayout.IntField(interactable.ShipRenownValue, GUILayout.MaxWidth(50));
+            interactable.RenownValue = EditorGUILayout.IntField(interactable.RenownValue, GUILayout.MaxWidth(50));
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();

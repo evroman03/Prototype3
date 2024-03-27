@@ -231,15 +231,42 @@ public class GameController : MonoBehaviour
         var popup = UIManager.Instance.Popup;
         var enemy = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>();
         var rm = ResourceManager.Instance;
+        bool enemySunk = false;
 
         int enemyRand = UnityEngine.Random.Range(3, 5);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
         int playerRand = UnityEngine.Random.Range(1, 3); //Possibility to be less punishing
 
-        int dmgToPlayer = (enemy.ShipDamage * (enemy.ShipManpower / enemyRand)) - ((rm.healthAmount / enemy.ShipDamage) * (enemy.ShipManpower / enemyRand));
-        int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.ShipHealth / rm.cannonCount) * (rm.crewAmount / playerRand)     * (int)(rm.reputationAmount*0.1f);
+        int dmgToPlayer = (enemy.Damage * (enemy.Manpower / enemyRand)) - ((rm.healthAmount / enemy.Damage) * (enemy.Manpower / enemyRand));
+        int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.Health / rm.cannonCount) * (rm.crewAmount / playerRand)     * (int)(rm.reputationAmount*0.1f);
         
         int enemyLosses = (rm.crewAmount * enemyRand * (int)(rm.reputationAmount * 0.1f));
-        int playerLosses = (enemy.ShipManpower * (int)(playerRand*0.5f));
+        int playerLosses = (enemy.Manpower * (int)(playerRand*0.5f));
+
+        int lootGained = enemy.Loot / (int)Mathf.Clamp((playerLosses * 0.5f), 1, (playerLosses * 0.5f));
+
+        enemy.Loot -= lootGained;
+        enemy.Health -= dmgToEnemy;
+        enemy.Manpower -= enemyLosses;
+        enemy.CatchPlayerChance /= 2;
+
+        rm.AdjustCrew(-playerLosses);
+        rm.AdjustHealth(-dmgToPlayer);
+        rm.AdjustGold(lootGained);
+        rm.AdjustReputation((enemyLosses / enemyRand) + enemy.RenownValue);
+
+        //sank the enemy 
+        if (enemy.CatchPlayerChance < 10 || enemy.Loot <= 0 ||  enemy.Health <= 0 || enemy.Manpower <= 10)
+        {
+            enemySunk = true;
+            PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable = null;
+            tile.HasInteractable = false;
+        }
+
+        else
+        {
+
+        }
+
 
         while (state == GameState.Fighting)
         {
