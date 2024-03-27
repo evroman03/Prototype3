@@ -127,9 +127,9 @@ MonoBehaviour:
     Should
     we fight?'
   type: 2
-  ShipDamage: 6
-  ShipHealth: 50
-  ShipManpower: 16
-  ShipLoot: 2000
-  ShipRenownValue: 10
+  Damage: 0
+  Health: 0
+  Manpower: 0
+  Loot: 0
+  RenownValue: 0
   CatchPlayerChance: 0
