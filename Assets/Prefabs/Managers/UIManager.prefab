@@ -1495,6 +1495,7 @@ MonoBehaviour:
   CrewText: {fileID: 2803418827571468943}
   HealthText: {fileID: 927077276423615616}
   InputFieldNum: 0
+  ctx: 0
 --- !u!1 &2255843113844997602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,7 +2187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/10000
+  m_text: 0/100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

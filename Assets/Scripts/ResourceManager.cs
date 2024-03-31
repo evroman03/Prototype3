@@ -36,15 +36,12 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] int maxReputation = 100;
     [SerializeField] int maxCrew = 75;
 
-    // Constants to define the minimum and maximum values for certain resources.
     
     private const int maxHealth = 100;
-    //public UIManager uiManager;
 
     private void Start()
     {
-        //InitializeResources();
-        //CheckResources();
+
     }
 
     // Method to initialize the resources with their starting values.
@@ -65,6 +62,17 @@ public class ResourceManager : MonoBehaviour
         Debug.Log("Health: " + healthAmount);
         Debug.Log("Crew: " + crewAmount);
     }
+    public bool CanSpendGold(int amount)
+    {
+        return goldAmount >= amount;
+    }
+
+    // Method to validate sending crew on missions
+    public bool CanSendCrew(int amount)
+    {
+        return crewAmount >= amount;
+    }
+
 
     // Method to adjust the reputation by a specified amount.
     public void AdjustReputation(int amount)
@@ -99,20 +107,52 @@ public class ResourceManager : MonoBehaviour
     // Method to adjust the health by a specified amount.
     public void AdjustHealth(int amount)
     {
-        // Clamps the health within the range of 0 to maxHealth to prevent negative health.
-        healthAmount = Mathf.Clamp(healthAmount + amount, 0, maxHealth); //ensures health will never go below 0
+        int newHealth = healthAmount + amount;
+
+        if (newHealth > maxHealth) //REFUNDING GOLD
+        {
+            int remainder = newHealth - maxHealth;
+            healthAmount = maxHealth;
+            AdjustGold(remainder*goldPerHealthFix);
+        }
+        else
+        {
+            healthAmount = Mathf.Clamp(newHealth, 0, maxHealth);
+        }
         UpdateUI();
     }
 
     // Method to adjust the number of crew members by a specified amount.
     public void AdjustCrew(int amount)
     {
-        // Ensures the crew count doesn't go below 0.
-        crewAmount = Mathf.Max(crewAmount + amount, 0);
+        int newCrew = crewAmount + amount;
+
+        if (newCrew > maxCrew) //REFUNDING GOLD
+        {
+            int remainder = newCrew - maxCrew;
+            crewAmount = maxCrew;
+            AdjustGold(remainder * goldPerCrew);
+        }
+        else
+        {
+            crewAmount = Mathf.Clamp(newCrew, 0, maxCrew);
+        }
         UpdateUI();
     }
 
     public void UpdateUI()
+    {
+        UIManager.Instance.Reputation.value = reputationAmount;
+        UIManager.Instance.Gold.value = goldAmount;
+        UIManager.Instance.Crew.value = crewAmount;
+        UIManager.Instance.ShipHealth.value = healthAmount;
+        UIManager.Instance.ReputationText.text = reputationAmount + "/" + maxReputation;
+        UIManager.Instance.GoldText.text = goldAmount + "/" + maxGold;
+        UIManager.Instance.CrewText.text = crewAmount + "/" + maxCrew;
+        UIManager.Instance.HealthText.text = healthAmount + "/" + maxHealth;
+        CheckWinLoss();
+    }
+    public void CheckWinLoss()
     {
         if (reputationAmount >= maxReputation)
         {
@@ -132,13 +172,5 @@ public class ResourceManager : MonoBehaviour
         {
             SceneManager.LoadScene(5);
         }
-        UIManager.Instance.Reputation.value = reputationAmount;
-        UIManager.Instance.Gold.value = goldAmount;
-        UIManager.Instance.Crew.value = crewAmount;
-        UIManager.Instance.ShipHealth.value = healthAmount;
-        UIManager.Instance.ReputationText.text = reputationAmount + "/" + maxReputation;
-        UIManager.Instance.GoldText.text = goldAmount + "/" + maxGold;
-        UIManager.Instance.CrewText.text = crewAmount + "/" + maxCrew;
-        UIManager.Instance.HealthText.text = healthAmount + "/" + maxHealth;
     }
 }

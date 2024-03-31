@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
+  m_Name: BadStorm
+  m_EditorClassIdentifier: 
+  EventName: 'Cap''n''s Log: Bad Storm Last Night'
+  Description: 'Arr, our ship be badly damaged, wit both crew and cannon o''erboard.
+    We be needin to find a friendly port as soon as possible... '
+  AffectShipPosRand: 1
+  AffectShipPosExact: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  HealthEffect: -15
+  CannonCtEffect: -3
+  GoldEffect: 0
+  CrewEffect: -3
+  ReputationEffect: 0
+  GoldPerHealthEffect: 0
+  GoldPerCrewEffect: 0
+  MXHealthEffect: 0
+  MXCannontCtEffect: 0
+  MXGoldEffect: 0
+  MXCrewEffect: 0
+  MXReputationEffect: 0

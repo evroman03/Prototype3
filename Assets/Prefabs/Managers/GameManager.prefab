@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08b871640043b04cad3d57319fa67ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnNumber: 0
   buttonChoice: 2
+  startedGame: 0
   state: 0
+  events:
+  - {fileID: 11400000, guid: 03580f3b958a5d041ac8e679c97c48ef, type: 2}
+  eventChance: 100

@@ -34,6 +34,8 @@ public class GameController : MonoBehaviour
         None, BeginTurn, Sailing, Interacting, Fighting, Raiding, Resting, Event,
     }
     public GameState state;
+    public List<Event> events = new List<Event>();
+    public int eventChance;
     
     void Start()
     {
@@ -217,6 +219,7 @@ public class GameController : MonoBehaviour
         {
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup(tile.ToSeparatedString(tile.type) + ", ahead!", tile.description, 2);
+            UIManager.Instance.ctx = UIManager.context.SendCrew;
         }
         else
         {
@@ -443,22 +446,29 @@ public class GameController : MonoBehaviour
         var tile = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>();
         var popup = UIManager.Instance.Popup;
         var rm = ResourceManager.Instance;
+        var ui = UIManager.Instance;
         if(tile.type == Tile.TileType.PirateCove)
         {
             popup.SetActive(true);
-            UIManager.Instance.SetUpPopup("We are near " + tile.Name,
-                "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It costs " + ResourceManager.Instance.goldPerCrew + 
+            ui.SetUpPopup("We are near " + tile.Name,
+                "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It costs " + rm.goldPerCrew + 
                 " gold to hire 1 new crewmember. How many crew do you want to hire here, cap'n?" , 2);
-            UIManager.Instance.Yes.interactable = false;
+            ui.ctx = UIManager.context.BuyingCrew;
+            ui.Yes.interactable = false;
+        }
+        else if(rm.healthAmount < 100)
+        {
+            popup.SetActive(true);
+            ui.SetUpPopup("Time to rest, captain.",
+                "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It takes 4 crewmates and costs " + 
+                rm.goldPerHealthFix + " gold to repair 1 point of ship health. Our ship's health is " + rm.healthAmount + "                                                                        " +
+                "How much health do you repair, cap'n?", 2);
+            ui.ctx = UIManager.context.BuyingHealth;
+            ui.Yes.interactable = false;
         }
         else
         {
-            popup.SetActive(true);
-            UIManager.Instance.SetUpPopup("Time to rest, captain.",
-                "We have " + rm.crewAmount + " crew aboard, and " + rm.goldAmount + " gold. It takes 4 crewmates and costs " + 
-                ResourceManager.Instance.goldPerHealthFix + " gold to repair 1 point of ship health. Our ship's health is " + rm.healthAmount + "                                                                        " +
-                "How much health do you repair, cap'n?", 2);
-            UIManager.Instance.Yes.interactable = false;
+            buttonChoice = 0;
         }
 
 
@@ -467,18 +477,19 @@ public class GameController : MonoBehaviour
             switch (buttonChoice)
             {
                 case 0:
+                    GSM(GameState.Event);
                     break;
                 case 1:
                     if (tile.type == Tile.TileType.PirateCove)
                     {
-                        ResourceManager.Instance.AdjustGold(-UIManager.Instance.InputFieldNum * ResourceManager.Instance.goldPerCrew);
-                        ResourceManager.Instance.AdjustCrew(UIManager.Instance.InputFieldNum);
+                        rm.AdjustGold(-ui.InputFieldNum * rm.goldPerCrew);
+                        rm.AdjustCrew(ui.InputFieldNum);
                         GSM(GameState.Event);
                     }
                     else
                     {
-                        ResourceManager.Instance.AdjustHealth(UIManager.Instance.InputFieldNum);
-                        ResourceManager.Instance.AdjustGold(-UIManager.Instance.InputFieldNum * ResourceManager.Instance.goldPerHealthFix);
+                        rm.AdjustHealth(ui.InputFieldNum);
+                        rm.AdjustGold(-ui.InputFieldNum * rm.goldPerHealthFix);
                         GSM(GameState.Event);
                     }
                     break;
@@ -493,6 +504,27 @@ public class GameController : MonoBehaviour
         EnemyManager.Instance.HandleMoveEnemies();
         buttonChoice = 2;
         print("EVENTSTATE");
+        if(events.Count >0 && Chance100(eventChance))
+        {
+            var pirateEvent = events[UnityEngine.Random.Range(0, events.Count)];
+            events.Remove(pirateEvent);
+            events.RemoveAll(item => item == null); // Removing all null items in the list, thanks CHAT
+            if(pirateEvent.AffectShipPosRand)
+            {
+                PlayerManager.Instance.MoveToTile(TileManager.Instance.LegalPlayerTiles[UnityEngine.Random.Range(0, TileManager.Instance.LegalPlayerTiles.Count)].GetComponent<Tile>());
+            }
+            else if(pirateEvent.AffectShipPosExact)
+            {
+                PlayerManager.Instance.MoveToTile(TileManager.Instance.GetTileAtCoordinates(pirateEvent.ShipExactMoveTo.x, pirateEvent.ShipExactMoveTo.z).GetComponent<Tile>());
+            }
+            var popup = UIManager.Instance.Popup;
+            popup.SetActive(true);
+            UIManager.Instance.SetUpPopup(pirateEvent.EventName, pirateEvent.Description, 0);
+        }  
+        else
+        {
+            buttonChoice = 1;
+        }
         while (state == GameState.Event)
         {
             switch (buttonChoice)
@@ -500,10 +532,10 @@ public class GameController : MonoBehaviour
                 case 0:
                     break;
                 case 1:
-                    break;
-                default:
                     turnNumber += 1;
                     GSM(GameState.BeginTurn);
+                    break;
+                default:
                     break;
             }
             yield return null;

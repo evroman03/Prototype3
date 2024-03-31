@@ -99,6 +99,13 @@ public class PlayerManager : MonoBehaviour
 
         }
     }
+    public void MoveToTile(Tile tile)
+    {
+        TilePlayerIsOn = tile.gameObject;
+        TilesSurroundingPlayer = TileManager.Instance.GetSurroundingTiles(TilePlayerIsOn.GetComponent<Tile>());
+        PlayerShip.transform.position = TilePlayerIsOn.transform.GetChild(0).transform.position;
+        RevealFog();
+    }
     public void RevealFog()
     {
         foreach (GameObject tile in TilesSurroundingPlayer)

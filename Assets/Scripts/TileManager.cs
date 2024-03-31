@@ -32,7 +32,7 @@ public class TileManager : MonoBehaviour
     [SerializeField] private int GridXSize, GridZSize;
     public List<GameObject> TilePrefabs = new List<GameObject>();
     public List<GameObject> AllTiles = new List<GameObject>();
-    private float secondsToWait;
+    public List<GameObject> LegalPlayerTiles { get; private set; } = new List<GameObject>();
     public void Update()
     {
 
@@ -61,6 +61,7 @@ public class TileManager : MonoBehaviour
                     temp.Coordinates = new Vector3(x, 0, z);
                     previousTile = randomTile;
                     AllTiles.Add(spawnedTile);
+                    LegalPlayerTiles.Add(spawnedTile);
                     EnemyManager.Instance.MBSpawnInteractable(temp);
                 }
             }
