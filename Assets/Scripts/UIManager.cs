@@ -45,6 +45,11 @@ public class UIManager : MonoBehaviour
     {
         InputFieldNum = 0;
     }
+    public enum context
+    {
+        SendCrew, BuyingHealth, BuyingCrew
+    }
+    public context ctx;
     /// <summary>
     /// BoxesToShow: 0 is yes/ok. 1 is yes+no. 2 is yes/ok+input
     /// </summary>
@@ -84,17 +89,30 @@ public class UIManager : MonoBehaviour
         int parsedNumber;
         if (int.TryParse(input, out parsedNumber))
         {
-            //if((parsedNumber*ResourceManager.Instance.goldPerHealthFix < ResourceManager.Instance.goldAmount) && ResourceManager.Instance.crewAmount > 4)
-            //{
-            //    print(InputFieldNum);
-            //}
-            Yes.interactable = true;
-            InputFieldNum = parsedNumber;
+            if(ctx == context.SendCrew && ResourceManager.Instance.CanSendCrew(parsedNumber))
+            {
+                Yes.interactable = true;
+                InputFieldNum = parsedNumber;
+            }
+            else if (ctx == context.BuyingCrew && ResourceManager.Instance.CanSpendGold(parsedNumber*ResourceManager.Instance.goldPerCrew))
+            {
+                Yes.interactable = true;
+                InputFieldNum = parsedNumber;
+            }
+            else if (ctx == context.BuyingHealth && ResourceManager.Instance.CanSpendGold(parsedNumber * ResourceManager.Instance.goldPerHealthFix))
+            {
+                Yes.interactable = true;
+                InputFieldNum = parsedNumber;
+            }
+            else
+            {
+                PopupInputField.text = "INPUT VALID NUMBER";
+                Yes.interactable = false;
+            }
         }
         else
         {
-            //PopupInputField.textComponent.color = new Color(255, 150, 150); //light red/pink
-            PopupInputField.text = "";
+            PopupInputField.text = "INPUT VALID NUMBER";
             Yes.interactable = false;
         }
     }
