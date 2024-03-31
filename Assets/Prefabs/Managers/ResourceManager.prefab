@@ -56,5 +56,5 @@ MonoBehaviour:
   goldPerCrew: 20
   cannonCount: 20
   maxGold: 10000
-  maxReputation: 10000
+  maxReputation: 100
   maxCrew: 75

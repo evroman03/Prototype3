@@ -358,10 +358,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 593008350}
-    - target: {fileID: 3464508203134622255, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_text
-      value: 0/100
-      objectReference: {fileID: 0}
     - target: {fileID: 3816096433113833358, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -635,18 +631,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3891657889031075353, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
-      propertyPath: eventChance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891657889031075353, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
-      propertyPath: events.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891657889031075353, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
-      propertyPath: events.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 03580f3b958a5d041ac8e679c97c48ef, type: 2}
     - target: {fileID: 7695946518462618019, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1004,10 +988,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3986998598510032047, guid: 2f170df21a5fdd64781f2abf7f5c0209, type: 3}
-      propertyPath: maxReputation
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5049177603161745334, guid: 2f170df21a5fdd64781f2abf7f5c0209, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
