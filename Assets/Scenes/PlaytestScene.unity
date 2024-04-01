@@ -269,6 +269,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: OceanTileNames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: RoyalTileNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: OceanTileNames.Array.data[2]
+      value: Deep waters
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: OceanTileNames.Array.data[3]
+      value: Dangerous waters
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: RoyalTileNames.Array.data[2]
+      value: Port au Prince
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.data[1]
+      value: Jamaica
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.data[2]
+      value: Bermuda
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.data[3]
+      value: Bahama
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.data[4]
+      value: Key Largo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.data[5]
+      value: Montego
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.data[6]
+      value: Martinique
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570731386805299799, guid: cf974395b11311a41852d742b8294c93, type: 3}
+      propertyPath: IslandTileNames.Array.data[7]
+      value: Montserrat
+      objectReference: {fileID: 0}
     - target: {fileID: 8758853042896126218, guid: cf974395b11311a41852d742b8294c93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -330,30 +382,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1434166040566212959, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1738115049656804385, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 593008350}
-    - target: {fileID: 1866547336735165272, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1971109791331225445, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015201360617277965, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214337754325862466, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2790623669788754802, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 593008350}
-    - target: {fileID: 2857424934084897584, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3388745826245787440, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -362,19 +410,23 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 593008350}
+    - target: {fileID: 5000545078057092237, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7064082607793169704, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8260839444959919505, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+    - target: {fileID: 7413468047317327487, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8613777237932771867, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+    - target: {fileID: 7424074708917109821, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8776632255972959297, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
+    - target: {fileID: 7580143479875121030, guid: 7a70b3d37150b5749999c012399f786b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -474,6 +526,10 @@ PrefabInstance:
     - target: {fileID: 4465632673159344273, guid: ec4e178080982334aa824468bad4db60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984257763013788046, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: TilePlayerIsOn
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

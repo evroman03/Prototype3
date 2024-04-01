@@ -508,7 +508,7 @@ public class GameController : MonoBehaviour
         {
             var pirateEvent = events[UnityEngine.Random.Range(0, events.Count)];
             events.Remove(pirateEvent);
-            events.RemoveAll(item => item == null); // Removing all null items in the list, thanks CHAT
+            //events.RemoveAll(item => item == null); 
             if(pirateEvent.AffectShipPosRand)
             {
                 PlayerManager.Instance.MoveToTile(TileManager.Instance.LegalPlayerTiles[UnityEngine.Random.Range(0, TileManager.Instance.LegalPlayerTiles.Count)].GetComponent<Tile>());
