@@ -8,6 +8,7 @@ public class TitleScreenController : MonoBehaviour
     [SerializeField] private GameObject MenuButtons;
     [SerializeField] private GameObject HTPScreen1;
     [SerializeField] private GameObject HTPScreen2;
+    [SerializeField] private GameObject Credits;
     void Start()
     {
         HowToPlay.SetActive(false);
@@ -28,6 +29,18 @@ public class TitleScreenController : MonoBehaviour
     public void CloseHowToPlay()
     {
         HowToPlay.SetActive(false);
+        MenuButtons.SetActive(true);
+    }
+
+    public void OpenCredits()
+    {
+        Credits.SetActive(true);
+        MenuButtons.SetActive(false);
+    }
+
+    public void CloseCredits()
+    {
+        Credits.SetActive(false);
         MenuButtons.SetActive(true);
     }
 
