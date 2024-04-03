@@ -119,9 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Atomizer
-  description: "Many a pirate tremble upon hearin\u2019 this ship\u2019s name. But
-    as ye look upon it, ye notice it be a lowly merchant ship that pose little a
-    threat upon ye ship...\n\nShould we fight?"
+  description: "Many a gentleman o' fortune tremble upon 'earin\u2019 this here ship\u2019s
+    name. But as ye look upon it, ye notice it be a lowly merchant ship that there
+    pose little a threat upon ye ship...\r\n\nShould we fight?\r\n\n"
+  TileEnemyIsOn: {fileID: 0}
   type: 2
   Damage: 6
   Health: 50

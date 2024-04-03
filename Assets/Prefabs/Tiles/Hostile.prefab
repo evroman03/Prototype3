@@ -301,11 +301,11 @@ MonoBehaviour:
   lootAmount: 5000
   lootChance: 90
   Hostiles: 45
-  description: The steel of cannons glints off many a watchtower by the docks of
-    this outpost, and the jolly skeletons of many a fellow pirate smile from signs
-    to beware. However, we could steal precious hardware from this place, despite
-    the risk.   Should we drop anchor and attempt a raid? How many crew should we
-    send?
+  description: "The steel o' cannons glints off many a watchtower by the docks o'
+    this here outpost, an' the jolly skeletons o' many a fellow gentleman o' fortune
+    smile from signs to beware. 'owever, we could plunder precious 'ardware from
+    this here place, despite the risk. Should we drop anchor an' attempt a raid?
+    'ow many crew should we send?\r\r"
 --- !u!1 &8382997250363194137
 GameObject:
   m_ObjectHideFlags: 0

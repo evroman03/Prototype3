@@ -119,9 +119,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Vala-halla
-  description: "Many a pirate belittle this ship for it\u2019s orange and white sails.
-    And while it be a small ship, it has never known defeat, making it the most notorious
-    ship to ever sail the seas...\n\nShould we fight?"
+  description: "Many a gentleman o' fortune belittle this here ship fer it\u2019s
+    orange an' white sails. An' while it be a small ship, it 'as ne'er known defeat,
+    makin' it the most notorious ship to e'er sail the seas...\r\n \r\nShould we
+    fight?\r\n"
+  TileEnemyIsOn: {fileID: 0}
   type: 0
   Damage: 10
   Health: 100

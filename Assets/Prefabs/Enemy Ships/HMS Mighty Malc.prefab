@@ -119,8 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HMS Mighty Malc
-  description: "This be a quick and nimble ship. It be known for stealin\u2019 booty
-    from other pirates...\n\nShould we fight?"
+  description: "Many a gentleman o' fortune tremble upon 'earin\u2019 this here ship\u2019s
+    name. But as ye look upon it, ye notice it be a lowly merchant ship that there
+    pose little a threat upon ye ship...\r\n\nShould we fight?\r\n\n"
+  TileEnemyIsOn: {fileID: 0}
   type: 2
   Damage: 6
   Health: 50

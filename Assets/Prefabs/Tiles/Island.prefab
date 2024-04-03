@@ -375,9 +375,9 @@ MonoBehaviour:
   lootAmount: 2500
   lootChance: 70
   Hostiles: 10
-  description: The natives ne'r take kindly to bothersome outsiders; and there be
-    snakes wanting yer legs and 'gators yer boots. However, its sands may hide BOOTY
-    - a great treasure fer all the crew.  How many crew do we send ashore?
+  description: "The natives ne'r take kindly to bothersome outsiders; an' there be
+    snakes wantin' yer legs an' 'gators yer boots. 'owever, its sands may 'ide booty
+    - a jolly treasure fer all the crew. 'ow many crew do we send ashore?\r"
 --- !u!1 &8950395210862878176
 GameObject:
   m_ObjectHideFlags: 0

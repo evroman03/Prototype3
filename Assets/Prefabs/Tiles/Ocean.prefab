@@ -299,5 +299,7 @@ MonoBehaviour:
   lootAmount: 0
   lootChance: 0
   Hostiles: 0
-  description: Arrr, true, cap'n. There be naught but the sound of waves and the
-    smell of a salty breeze out here.  Maybe we'll go fishing...
+  description: 'Arrr, true, cap''n. There be naught but the sound o'' waves an''
+    the smell o'' a salty breeze out ''ere. Maybe we''ll go fishin''...
+
+'
