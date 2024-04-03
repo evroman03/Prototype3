@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
-  m_Name: BadStorm
+  m_Name: MessageInABottle
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: Bad Storm Last Night'
-  Description: 'Arr, our ship be badly damaged, wit both crew and cannon o''erboard.
-    We be needin to find a friendly port as soon as possible... '
+  EventName: 'Cap''n''s Log: '
+  Description: DESCRIPTION HERE
   AffectShipPosRand: 1
   AffectShipPosExact: 0
   ShipExactMoveTo: {x: 0, y: 0, z: 0}
-  HealthEffect: -15
+  HealthEffect: 0
   CannonCtEffect: 0
-  GoldEffect: 0
-  CrewEffect: -3
+  GoldEffect: 2000
+  CrewEffect: -1
   ReputationEffect: 0
   GoldPerHealthEffect: 0
   GoldPerCrewEffect: 0

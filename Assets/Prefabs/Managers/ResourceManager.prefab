@@ -54,7 +54,7 @@ MonoBehaviour:
   crewAmount: 0
   goldPerHealthFix: 50
   goldPerCrew: 20
-  cannonCount: 20
+  cannonCount: 10
   maxGold: 10000
-  maxReputation: 100
+  maxReputation: 1000
   maxCrew: 75

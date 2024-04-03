@@ -50,4 +50,13 @@ MonoBehaviour:
   state: 0
   events:
   - {fileID: 11400000, guid: 03580f3b958a5d041ac8e679c97c48ef, type: 2}
+  - {fileID: 11400000, guid: 355ff4fa1790e2446b3d2d17130bdc56, type: 2}
+  - {fileID: 11400000, guid: f7489fe3018d2aa4ea1bb8efde60be26, type: 2}
+  - {fileID: 11400000, guid: 0391a470eb206c540b4e11e600b27429, type: 2}
+  - {fileID: 11400000, guid: b50d8c1b1a93bc746946dde749ce05b6, type: 2}
+  - {fileID: 11400000, guid: fe82e7e5a0badcf499358237d5ae560e, type: 2}
+  - {fileID: 11400000, guid: 04971a1494ab9d84c83ce924eb6b49de, type: 2}
+  - {fileID: 11400000, guid: d695b40fdace73a4fa08e596fcdf5474, type: 2}
+  - {fileID: 11400000, guid: becb2fbb51c6ce8409acade2c6b311e2, type: 2}
+  - {fileID: 11400000, guid: 32d2d8c5a0983864090882bd847eafe6, type: 2}
   eventChance: 100
