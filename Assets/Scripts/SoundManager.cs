@@ -27,9 +27,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip SwordsClashing;
     [SerializeField] private AudioClip GoldExchange;
     [SerializeField] private AudioClip RisingReputation;
-    [SerializeField] private AudioClip RoyaleIsland;
-    [SerializeField] private AudioClip PirateIsland;
-    [SerializeField] private AudioClip NormalIsland;
     [SerializeField] private AudioClip Sailing;
     [SerializeField] private AudioClip StormEvent;
     [SerializeField] private AudioClip KrakenEvent;
@@ -51,12 +48,13 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    //these two functions are to be called when fighting a ship or an island
+    //this function is to be called when fighting a ship
     public void FireCannons()
     {
         AudioSource.PlayClipAtPoint(CannonFire, audioLocation.transform.position);
     }
 
+    //this function is to be called when fighting on an island
     public void ClashingSwords()
     {
         AudioSource.PlayClipAtPoint(SwordsClashing, audioLocation.transform.position);
@@ -72,22 +70,6 @@ public class SoundManager : MonoBehaviour
     public void ReputationIncrease()
     {
         AudioSource.PlayClipAtPoint(RisingReputation, audioLocation.transform.position);
-    }
-
-    //these functions are to be called when the player interacts with a royale, pirate, or normal island
-    public void RoyaleDiscovery()
-    {
-        AudioSource.PlayClipAtPoint(RoyaleIsland, audioLocation.transform.position);
-    }
-
-    public void PirateEncounter()
-    {
-        AudioSource.PlayClipAtPoint(PirateIsland, audioLocation.transform.position);
-    }
-
-    public void IslandDiscovery()
-    {
-        AudioSource.PlayClipAtPoint(NormalIsland, audioLocation.transform.position);
     }
 
     //this function is called when the player moves on the map
@@ -107,5 +89,13 @@ public class SoundManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(KrakenEvent, audioLocation.transform.position);
     }
 
+    public void EventShark()
+    {
+        AudioSource.PlayClipAtPoint(LoanSharkEvent, audioLocation.transform.position);
+    }
 
+    public void EventMutiny()
+    {
+        AudioSource.PlayClipAtPoint(MutinyEvent, audioLocation.transform.position);
+    }
 }
