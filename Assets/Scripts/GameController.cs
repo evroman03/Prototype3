@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -122,7 +123,7 @@ public class GameController : MonoBehaviour
                     StopCoroutine(currentState);
                 }
                 state=GameState.Event;
-                currentState = StartCoroutine(Event());
+                currentState = StartCoroutine(EventTime());
                 break;
         }
     }
@@ -281,16 +282,26 @@ public class GameController : MonoBehaviour
         var enemy = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>();
         var rm = ResourceManager.Instance;
 
-        int enemyRand = UnityEngine.Random.Range(3, 5);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
-        int playerRand = UnityEngine.Random.Range(1, 3); //Possibility to be less punishing
-        print(enemyRand + "er");
-        print(playerRand + "pr");
-        int dmgToPlayer = (enemy.Damage * (enemy.Manpower / enemyRand)) - ((rm.healthAmount / enemy.Damage) * (enemy.Manpower / enemyRand));
-        int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.Health / rm.cannonCount) * (rm.crewAmount / playerRand)     
-            * (int)(rm.reputationAmount*0.1f);
+        //int enemyRand = UnityEngine.Random.Range(3, 6);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
+        //int playerRand = UnityEngine.Random.Range(1, 4); //Possibility to be less punishing
+        //int dmgToPlayer = (enemy.Damage * (enemy.Manpower / enemyRand)) - ((rm.healthAmount / enemy.Damage) * (enemy.Manpower / enemyRand));
+        //int dmgToEnemy = (rm.cannonCount * (rm.crewAmount/playerRand)) - (enemy.Health / rm.cannonCount) * (rm.crewAmount / playerRand)     
+        //    * (int)(rm.reputationAmount*0.1f);
+
+        //int enemyLosses = (rm.crewAmount * enemyRand * (int)((rm.reputationAmount * 0.1f) +1));
+        //int playerLosses = (int)((enemy.Manpower * playerRand)*0.25f);
         
-        int enemyLosses = (rm.crewAmount * enemyRand * (int)((rm.reputationAmount * 0.1f) +1));
-        int playerLosses = (int)((enemy.Manpower * playerRand)*0.25f);
+        int playerRand = UnityEngine.Random.Range(3, 7);
+        int enemyRand = UnityEngine.Random.Range(6, 10);
+
+        int playerMult = rm.crewAmount / playerRand;
+        int enemyMult = enemy.Manpower / enemyRand;
+
+        int dmgToPlayer = (enemy.Damage * enemyMult) / (rm.healthAmount / 100);
+        int dmgToEnemy = (rm.cannonCount * playerMult) / (enemy.Health / 100);
+
+        int playerLosses = (enemy.Manpower / enemyMult);
+        int enemyLosses = (rm.crewAmount / playerMult);
 
         int lootGained = enemy.Loot / (int)Mathf.Clamp((playerLosses * 0.5f), 1, (playerLosses * 0.5f));
 
@@ -499,7 +510,7 @@ public class GameController : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator Event()
+    IEnumerator EventTime()
     {
         EnemyManager.Instance.HandleMoveEnemies();
         buttonChoice = 2;
@@ -508,15 +519,33 @@ public class GameController : MonoBehaviour
         {
             var pirateEvent = events[UnityEngine.Random.Range(0, events.Count)];
             events.Remove(pirateEvent);
-            //events.RemoveAll(item => item == null); 
-            if(pirateEvent.AffectShipPosRand)
+            switch(pirateEvent.ToGo)
             {
-                PlayerManager.Instance.MoveToTile(TileManager.Instance.LegalPlayerTiles[UnityEngine.Random.Range(0, TileManager.Instance.LegalPlayerTiles.Count)].GetComponent<Tile>());
-            }
-            else if(pirateEvent.AffectShipPosExact)
-            {
-                PlayerManager.Instance.MoveToTile(TileManager.Instance.GetTileAtCoordinates(pirateEvent.ShipExactMoveTo.x, pirateEvent.ShipExactMoveTo.z).GetComponent<Tile>());
-            }
+                case Event.SendToTile.None:
+                    break;
+                case Event.SendToTile.Rand:
+                    PlayerManager.Instance.MoveToTile(TileManager.Instance.LegalPlayerTiles[UnityEngine.Random.Range(0, TileManager.Instance.LegalPlayerTiles.Count)].GetComponent<Tile>());
+                    break;
+                case Event.SendToTile.Ocean:
+                    GameObject[] objs = TileManager.Instance.LegalPlayerTiles.Where(x => x.GetComponent<Tile>().type == Tile.TileType.Ocean).ToArray();
+                    PlayerManager.Instance.MoveToTile(objs[UnityEngine.Random.Range(0, objs.Length)].GetComponent<Tile>());
+                    break;
+                case Event.SendToTile.Island:
+                    GameObject[] objs2 = TileManager.Instance.LegalPlayerTiles.Where(x => x.GetComponent<Tile>().type == Tile.TileType.Island).ToArray();
+                    PlayerManager.Instance.MoveToTile(objs2[UnityEngine.Random.Range(0, objs2.Length)].GetComponent<Tile>());
+                    break;
+                case Event.SendToTile.Royal:
+                    GameObject[] objs3 = TileManager.Instance.LegalPlayerTiles.Where(x => x.GetComponent<Tile>().type == Tile.TileType.RoyalPort).ToArray();
+                    PlayerManager.Instance.MoveToTile(objs3[UnityEngine.Random.Range(0, objs3.Length)].GetComponent<Tile>());
+                    break;
+                case Event.SendToTile.Port:
+                    GameObject[] objs4 = TileManager.Instance.LegalPlayerTiles.Where(x => x.GetComponent<Tile>().type == Tile.TileType.PirateCove).ToArray();
+                    PlayerManager.Instance.MoveToTile(objs4[UnityEngine.Random.Range(0, objs4.Length)].GetComponent<Tile>());
+                    break;
+                case Event.SendToTile.Exact:
+                    PlayerManager.Instance.MoveToTile(TileManager.Instance.GetTileAtCoordinates(pirateEvent.ShipExactMoveTo.x, pirateEvent.ShipExactMoveTo.z).GetComponent<Tile>());
+                    break;
+            }         
             var popup = UIManager.Instance.Popup;
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup(pirateEvent.EventName, pirateEvent.Description, 0);
