@@ -15,9 +15,6 @@ MonoBehaviour:
   EventName: 'Cap''n''s Log: Bad Storm Last Night'
   Description: 'Arr, our ship be badly damaged, wit both crew and cannon o''erboard.
     We be needin to find a friendly port as soon as possible... '
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
   HealthEffect: -15
   CannonCtEffect: 0
   GoldEffect: 0
@@ -30,3 +27,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 1
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}
