@@ -23,6 +23,34 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
 
+    public AudioClip[] playlist;
+    AudioSource playlistSource;
+
+    private void Awake()
+    {
+        playlistSource = gameObject.GetComponent<AudioSource>();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if(!playlistSource.playOnAwake)
+        {
+            playlistSource.clip = playlist[Random.Range(0, playlist.Length)];
+            playlistSource.Play();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!playlistSource.isPlaying)
+        {
+            playlistSource.clip = playlist[Random.Range(0, playlist.Length)];
+            playlistSource.Play();
+        }
+    }
+
     [SerializeField] private AudioClip CannonFire;
     [SerializeField] private AudioClip SwordsClashing;
     [SerializeField] private AudioClip GoldExchange;
@@ -35,18 +63,6 @@ public class SoundManager : MonoBehaviour
 
     //this object is the location of where the audioclips will play in the scene
     [SerializeField] private GameObject audioLocation;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //this function is to be called when fighting a ship
     public void FireCannons()
