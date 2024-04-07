@@ -1537,6 +1537,50 @@ PrefabInstance:
       propertyPath: audioLocation
       value: 
       objectReference: {fileID: 968316155}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d951ea571dcd36e46a5251f4ee5ac703, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e662f8370b10d84983db4337e655ba2, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 090c46808aa5a194298d33317479ce05, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4de3026f9bf60f341a68ebbd7ecaac0d, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: c1a0a3494c009f7409fcab85925dd35a, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a26d1f147a293446b5eeff54eb91e2d, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: c6175539524241740b5205dd64bd2799, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8109cd19a446b5b4794273a91969a12f, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: daf0acf002dec9a4e95ef4eb41aa6037, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: playlist.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 876ef994d2d02de4baada10eb55affc3, type: 3}
     - target: {fileID: 6025112986072052936, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
       propertyPath: m_Name
       value: SoundManager
