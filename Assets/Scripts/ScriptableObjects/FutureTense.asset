@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: FutureTense
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Cannons Salvaged'
+  Description: 'What a miracle o'' the sea! we got an undamaged box full o'' canons.
+    It be almost like someone out in the sea be lookin'' out fer us from afar. (You
+    Gain 2 Cannons) '
   HealthEffect: 0
   CannonCtEffect: 2
   GoldEffect: 0
@@ -29,3 +28,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}

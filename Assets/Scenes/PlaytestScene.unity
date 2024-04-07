@@ -629,6 +629,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7984257763013788046, guid: ec4e178080982334aa824468bad4db60, type: 3}
+      propertyPath: PlayerShip
+      value: 
+      objectReference: {fileID: 6975229902083389795, guid: 258b2cd9dedc7bf468d2012d46e03664, type: 3}
+    - target: {fileID: 7984257763013788046, guid: ec4e178080982334aa824468bad4db60, type: 3}
       propertyPath: TilePlayerIsOn
       value: 
       objectReference: {fileID: 0}

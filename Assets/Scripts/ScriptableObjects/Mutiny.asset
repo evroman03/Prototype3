@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: Mutiny
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Mutiny Last Night'
+  Description: 'Them ungrateful sea worms decided to go against their Cap''n an''
+    their brothers in arm. Well, they be delt with now an'' they can rot at the bottom
+    o'' the sea fer their treachery.  (You Lose 15 of your crew and 25 Reputation) '
   HealthEffect: 0
   CannonCtEffect: 0
   GoldEffect: 0
@@ -29,3 +28,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}
