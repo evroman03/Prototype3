@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: GoldIsland
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Money Does Grow On Trees'
+  Description: 'tis a gentleman o'' fortune miracle. We found an island made out
+    o'' gold. The sea be lookin'' out fer us this here day. (Gain 3000 Gold) '
   HealthEffect: 0
   CannonCtEffect: 0
   GoldEffect: 3000
@@ -29,3 +27,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}

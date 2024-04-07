@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: Titanic
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: A Tragic Event Occured'
+  Description: 'Aye we ''it a large iceberg this here mornin''. It be impressive
+    that there old Jake did nay see it comin''. Poor lad fell overboard an'' old
+    little Rose jumped in to save ''im. They clanged to that there wooden plank till
+    the end. All the ships around shed ''onest tears fer them (You Lose 50HP, 2 crew
+    and Gain 100 Reputation) '
   HealthEffect: -50
   CannonCtEffect: 0
   GoldEffect: 0
@@ -29,3 +30,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}
