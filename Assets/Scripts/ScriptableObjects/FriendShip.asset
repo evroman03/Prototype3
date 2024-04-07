@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: FriendShip
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Encountered a Friendly Ship'
+  Description: 'Aye we meet some jolly gentlemen o'' fortune out in the sea. They
+    guided us to a port an'' drank with us till mornin''. Even paid fer all the drink!
+    tis a jolly day to be alive. (You are at a pirate port) '
   HealthEffect: 0
   CannonCtEffect: 0
   GoldEffect: 0
@@ -29,3 +28,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 3
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}

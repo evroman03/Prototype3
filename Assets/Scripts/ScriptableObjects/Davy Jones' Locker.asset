@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
-  m_Name: Davy John's Locker
+  m_Name: Davy Jones' Locker
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Discovered Davy Jones'' Locker'
+  Description: "We \u2018ave found the locker of Davy Jones! While it\u2019s contents
+    may not be worth anything, all who sail the seas shall hear of this accomplishment!
+    (Gain 100 Reputation)"
   HealthEffect: 0
   CannonCtEffect: 0
   GoldEffect: 0
@@ -29,3 +28,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}

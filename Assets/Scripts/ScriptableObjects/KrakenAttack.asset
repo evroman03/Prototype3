@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: KrakenAttack
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Kracken Attack'
+  Description: 'Aye Captain we got attacked by the legendary kraken. We lost a lot
+    o'' jolly men in a fight but look at all the treasure in a beast belly! gentlemen
+    o'' fortune all o''er the sea will ''earrr o'' our glorious victory. (You lost
+    25 crew and Gained 2000 gold and 100 Reputation) '
   HealthEffect: 0
   CannonCtEffect: 0
   GoldEffect: 2000
@@ -29,3 +29,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}

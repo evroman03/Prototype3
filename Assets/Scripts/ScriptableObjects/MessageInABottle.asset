@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: MessageInABottle
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log: '
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Treasure Map Found'
+  Description: 'Poor Steve fell overboard tryin'' to get this here damned bottled
+    message fer us. It looks like a fine treasure map. There be ''ope fer us yet.
+    (You Lost 1 crew and Gained 2000 Gold) '
   HealthEffect: 0
   CannonCtEffect: 0
   GoldEffect: 2000
@@ -29,3 +28,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}

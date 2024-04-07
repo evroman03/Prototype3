@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacc03c71636144f8c989de53895800, type: 3}
   m_Name: LoanSharks
   m_EditorClassIdentifier: 
-  EventName: 'Cap''n''s Log:'
-  Description: DESCRIPTION HERE
-  AffectShipPosRand: 1
-  AffectShipPosExact: 0
-  ShipExactMoveTo: {x: 0, y: 0, z: 0}
+  EventName: 'Cap''n''s Log: Loan Sharks Came To Collect'
+  Description: 'Them damn to the depths sharks in their fancy attire demand we pay
+    our loans to them. They will stay with our crew until they get all the coin.
+    Gentlemen o'' fortune o'' the sea will laugh at our faces when they ''ear o''
+    this here. (You Lost 5000 gold and 25 Reputation, Gain 3 crew) '
   HealthEffect: 0
   CannonCtEffect: 0
   GoldEffect: -5000
@@ -29,3 +29,5 @@ MonoBehaviour:
   MXGoldEffect: 0
   MXCrewEffect: 0
   MXReputationEffect: 0
+  ToGo: 0
+  ShipExactMoveTo: {x: 0, y: 0, z: 0}
