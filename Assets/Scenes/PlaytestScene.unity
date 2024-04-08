@@ -791,7 +791,7 @@ PrefabInstance:
     - target: {fileID: 7984257763013788046, guid: ec4e178080982334aa824468bad4db60, type: 3}
       propertyPath: PlayerShip
       value: 
-      objectReference: {fileID: 6975229902083389795, guid: 258b2cd9dedc7bf468d2012d46e03664, type: 3}
+      objectReference: {fileID: 8822404924887222388, guid: cb1feb241c9490f4aa91f8de89a13505, type: 3}
     - target: {fileID: 7984257763013788046, guid: ec4e178080982334aa824468bad4db60, type: 3}
       propertyPath: TilePlayerIsOn
       value: 
@@ -1117,7 +1117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891657889031075353, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
       propertyPath: eventChance
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7695946518462618019, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
       propertyPath: m_Name
@@ -1534,77 +1534,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: GameFail
+      propertyPath: NormalEvent
       value: 
-      objectReference: {fileID: 8300000, guid: ef6ce6abb1fed6b4b8677b6866100bfb, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: DJonesEvent
-      value: 
-      objectReference: {fileID: 8300000, guid: a415b9fc7c2dcc643902061897c8f5d3, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: GIslandEvent
-      value: 
-      objectReference: {fileID: 8300000, guid: 8be6949ada28858479cb82c35e4ec9e6, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: MessageEvent
-      value: 
-      objectReference: {fileID: 8300000, guid: c6384b8542136cb4b93db337908db2f4, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: TitanicEvent
-      value: 
-      objectReference: {fileID: 8300000, guid: 4ee2961e92352c440a9656ae776978bb, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: LevelComplete
-      value: 
-      objectReference: {fileID: 8300000, guid: 04e30920dad429f4db1235e99bc9f778, type: 3}
+      objectReference: {fileID: 8300000, guid: ef7f8abc9721b7649ad74fddb364b1f8, type: 3}
     - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
       propertyPath: audioLocation
       value: 
       objectReference: {fileID: 968316155}
     - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[0]
+      propertyPath: OceansAndSeagulls
       value: 
-      objectReference: {fileID: 8300000, guid: d951ea571dcd36e46a5251f4ee5ac703, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9e662f8370b10d84983db4337e655ba2, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 090c46808aa5a194298d33317479ce05, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 4de3026f9bf60f341a68ebbd7ecaac0d, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: c1a0a3494c009f7409fcab85925dd35a, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0a26d1f147a293446b5eeff54eb91e2d, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: c6175539524241740b5205dd64bd2799, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8109cd19a446b5b4794273a91969a12f, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: daf0acf002dec9a4e95ef4eb41aa6037, type: 3}
-    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
-      propertyPath: playlist.Array.data[9]
-      value: 
-      objectReference: {fileID: 8300000, guid: 876ef994d2d02de4baada10eb55affc3, type: 3}
+      objectReference: {fileID: 8300000, guid: ef7f8abc9721b7649ad74fddb364b1f8, type: 3}
     - target: {fileID: 6025112986072052936, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
       propertyPath: m_Name
       value: SoundManager

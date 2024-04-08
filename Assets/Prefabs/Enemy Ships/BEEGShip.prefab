@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.012
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.154
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.947
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 56da24b4c3f0b1a489500483e4be4266, type: 2}
     - target: {fileID: 919132149155446097, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_Name
-      value: PlayerShipFINAL (1)
+      value: BEEGShip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

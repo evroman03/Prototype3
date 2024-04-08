@@ -23,52 +23,33 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
 
-    public AudioClip[] playlist;
-    AudioSource playlistSource;
-
-    private void Awake()
-    {
-        playlistSource = gameObject.GetComponent<AudioSource>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(!playlistSource.playOnAwake)
-        {
-            playlistSource.clip = playlist[Random.Range(0, playlist.Length)];
-            playlistSource.Play();
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!playlistSource.isPlaying)
-        {
-            playlistSource.clip = playlist[Random.Range(0, playlist.Length)];
-            playlistSource.Play();
-        }
-    }
-
     [SerializeField] private AudioClip CannonFire;
     [SerializeField] private AudioClip SwordsClashing;
     [SerializeField] private AudioClip GoldExchange;
     [SerializeField] private AudioClip RisingReputation;
     [SerializeField] private AudioClip Sailing;
+    [SerializeField] private AudioClip NormalEvent;
+    [SerializeField] private AudioClip OceansAndSeagulls;
+    
     [SerializeField] private AudioClip StormEvent;
     [SerializeField] private AudioClip KrakenEvent;
     [SerializeField] private AudioClip MutinyEvent;
     [SerializeField] private AudioClip LoanSharkEvent;
-    [SerializeField] private AudioClip MessageEvent;
-    [SerializeField] private AudioClip TitanicEvent;
-    [SerializeField] private AudioClip DJonesEvent;
-    [SerializeField] private AudioClip GIslandEvent;
-    [SerializeField] private AudioClip LevelComplete;
-    [SerializeField] private AudioClip GameFail;
 
     //this object is the location of where the audioclips will play in the scene
     [SerializeField] private GameObject audioLocation;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     //this function is to be called when fighting a ship
     public void FireCannons()
@@ -95,7 +76,7 @@ public class SoundManager : MonoBehaviour
     }
 
     //this function is called when the player moves on the map
-    public void PlayerMovement()
+    public void SailingSound()
     {
         AudioSource.PlayClipAtPoint(Sailing, audioLocation.transform.position);
     }
@@ -116,40 +97,16 @@ public class SoundManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(LoanSharkEvent, audioLocation.transform.position);
     }
 
-    public void EventMutiny()
+    public void FailureSound()
     {
         AudioSource.PlayClipAtPoint(MutinyEvent, audioLocation.transform.position);
     }
-
-    public void EventBottle()
+    public void EventPaperSound()
     {
-        AudioSource.PlayClipAtPoint(MessageEvent, audioLocation.transform.position);
+        AudioSource.PlayClipAtPoint(NormalEvent, audioLocation.transform.position);
     }
-
-    public void EventTitanic()
+    public void OceanSound()
     {
-        AudioSource.PlayClipAtPoint(TitanicEvent, audioLocation.transform.position);
-    }
-
-    public void EventDavyJones()
-    {
-        AudioSource.PlayClipAtPoint(DJonesEvent, audioLocation.transform.position);
-    }
-
-    public void EventGoldISland()
-    {
-        AudioSource.PlayClipAtPoint(GIslandEvent, audioLocation.transform.position);
-    }
-
-    //this function is to be called when the player wins the game
-    public void VictorySound()
-    {
-        AudioSource.PlayClipAtPoint(LevelComplete, audioLocation.transform.position);
-    }
-
-    //this function is to be called when the player loses the game
-    public void GameOverSound()
-    {
-        AudioSource.PlayClipAtPoint(GameFail, audioLocation.transform.position);
+        AudioSource.PlayClipAtPoint(OceansAndSeagulls, audioLocation.transform.position);
     }
 }
