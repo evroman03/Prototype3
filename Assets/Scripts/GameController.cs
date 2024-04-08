@@ -288,6 +288,8 @@ public class GameController : MonoBehaviour
         var popup = UIManager.Instance.Popup;
         var enemy = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>();
         var rm = ResourceManager.Instance;
+        print(enemy.Name);
+        print(enemy.Health);
 
         //int enemyRand = UnityEngine.Random.Range(3, 6);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
         //int playerRand = UnityEngine.Random.Range(1, 4); //Possibility to be less punishing
@@ -304,8 +306,9 @@ public class GameController : MonoBehaviour
         int playerMult = rm.crewAmount / playerRand;
         int enemyMult = enemy.Manpower / enemyRand;
 
-        int dmgToPlayer = (enemy.Damage * enemyMult) / (rm.healthAmount / 100);
-        int dmgToEnemy = (rm.cannonCount * playerMult) / (enemy.Health / 100);
+        int dmgToPlayer = (enemy.Damage * enemyMult*100) / (rm.healthAmount);
+        int dmgToEnemy = (rm.cannonCount * playerMult*100) / (enemy.Health);
+
 
         int playerLosses = (enemy.Manpower / enemyMult);
         int enemyLosses = (rm.crewAmount / playerMult);
