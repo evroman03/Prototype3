@@ -379,7 +379,7 @@ public class GameController : MonoBehaviour
         {
             if (tile.type == Tile.TileType.RoyalPort) //if raiding a fort
             {
-                crewLostToFort = Mathf.Clamp((int)(tile.Hostiles * UnityEngine.Random.Range(1, 5f)), 1, inputNum);
+                crewLostToFort = Mathf.Clamp((int)(tile.Hostiles / UnityEngine.Random.Range(3, 7f)), 1, inputNum);
                 ResourceManager.Instance.AdjustCrew(-crewLostToFort);
                 inputNum -= crewLostToFort;
                 int hostilesLost = Mathf.Clamp((int)(inputNum * UnityEngine.Random.Range(1, 3) * (ResourceManager.Instance.reputationAmount * 0.1f)),
