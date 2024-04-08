@@ -791,7 +791,7 @@ PrefabInstance:
     - target: {fileID: 7984257763013788046, guid: ec4e178080982334aa824468bad4db60, type: 3}
       propertyPath: PlayerShip
       value: 
-      objectReference: {fileID: 6975229902083389795, guid: 258b2cd9dedc7bf468d2012d46e03664, type: 3}
+      objectReference: {fileID: 8822404924887222388, guid: cb1feb241c9490f4aa91f8de89a13505, type: 3}
     - target: {fileID: 7984257763013788046, guid: ec4e178080982334aa824468bad4db60, type: 3}
       propertyPath: TilePlayerIsOn
       value: 
@@ -1117,7 +1117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891657889031075353, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
       propertyPath: eventChance
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7695946518462618019, guid: 2f4e6a56da91ae247958e0faae37b918, type: 3}
       propertyPath: m_Name

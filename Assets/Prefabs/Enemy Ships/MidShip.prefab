@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.532
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.199
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.886
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4cc375a096fc16241b9d2eedd425edc2, type: 2}
     - target: {fileID: 919132149155446097, guid: b1b4965466681db4eb51f46459174ff5, type: 3}
       propertyPath: m_Name
-      value: PlayerShipFINAL (2)
+      value: MidShip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
