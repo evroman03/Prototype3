@@ -1534,9 +1534,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: NormalEvent
+      value: 
+      objectReference: {fileID: 8300000, guid: ef7f8abc9721b7649ad74fddb364b1f8, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
       propertyPath: audioLocation
       value: 
       objectReference: {fileID: 968316155}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: OceansAndSeagulls
+      value: 
+      objectReference: {fileID: 8300000, guid: ef7f8abc9721b7649ad74fddb364b1f8, type: 3}
     - target: {fileID: 6025112986072052936, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
       propertyPath: m_Name
       value: SoundManager

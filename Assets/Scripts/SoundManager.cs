@@ -28,6 +28,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip GoldExchange;
     [SerializeField] private AudioClip RisingReputation;
     [SerializeField] private AudioClip Sailing;
+    [SerializeField] private AudioClip NormalEvent;
+    [SerializeField] private AudioClip OceansAndSeagulls;
+    
     [SerializeField] private AudioClip StormEvent;
     [SerializeField] private AudioClip KrakenEvent;
     [SerializeField] private AudioClip MutinyEvent;
@@ -73,7 +76,7 @@ public class SoundManager : MonoBehaviour
     }
 
     //this function is called when the player moves on the map
-    public void PlayerMovement()
+    public void SailingSound()
     {
         AudioSource.PlayClipAtPoint(Sailing, audioLocation.transform.position);
     }
@@ -94,8 +97,16 @@ public class SoundManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(LoanSharkEvent, audioLocation.transform.position);
     }
 
-    public void EventMutiny()
+    public void FailureSound()
     {
         AudioSource.PlayClipAtPoint(MutinyEvent, audioLocation.transform.position);
+    }
+    public void EventPaperSound()
+    {
+        AudioSource.PlayClipAtPoint(NormalEvent, audioLocation.transform.position);
+    }
+    public void OceanSound()
+    {
+        AudioSource.PlayClipAtPoint(OceansAndSeagulls, audioLocation.transform.position);
     }
 }
