@@ -298,7 +298,7 @@ MonoBehaviour:
   HasFogOfWar: 1
   Visited: 0
   HasInteractable: 0
-  lootAmount: 5000
+  lootAmount: 2500
   lootChance: 90
   Hostiles: 45
   description: "The steel o' cannons glints off many a watchtower by the docks o'

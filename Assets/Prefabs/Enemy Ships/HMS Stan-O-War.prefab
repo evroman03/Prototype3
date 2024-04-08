@@ -129,8 +129,8 @@ MonoBehaviour:
   Damage: 10
   Health: 100
   Manpower: 28
-  Loot: 10000
-  RenownValue: 50
+  Loot: 4000
+  RenownValue: 225
   CatchPlayerChance: 40
 --- !u!1001 &8594241742118112743
 PrefabInstance:
