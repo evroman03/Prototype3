@@ -175,6 +175,7 @@ public class GameController : MonoBehaviour
                 case 0:
                     break;
                 case 1:
+                    SoundManager.Instance.OceanSound();
                     GSM(GameState.Sailing);
                     break;
                 default:
@@ -195,6 +196,7 @@ public class GameController : MonoBehaviour
                 case 0:
                     break;
                 case 1:
+                    SoundManager.Instance.SailingSound();
                     GSM(GameState.Interacting);
                     break;
                 default:
@@ -238,6 +240,7 @@ public class GameController : MonoBehaviour
                         //If we catch the player, go to fighting
                         if (Chance100(tile.Interactable.GetComponent<Interactable>().CatchPlayerChance))
                         {
+                            SoundManager.Instance.FireCannons();
                             GSM(GameState.Fighting);
                         }
                         //Otherwise the player escapes, enable sailing and a popup.
@@ -246,6 +249,8 @@ public class GameController : MonoBehaviour
                             popup.SetActive(true);
                             UIManager.Instance.SetUpPopup("Escaped from the " + tile.Interactable.name, "Choose a direction to escape to, cap'n.", 0);
                             UIManager.Instance.ToggleCompassButtons(true);
+
+                            SoundManager.Instance.SailingSound();
                             GSM(GameState.Resting);
                         }
                     }
@@ -255,10 +260,12 @@ public class GameController : MonoBehaviour
                     //If the player chooses to fight
                     if(tile.HasInteractable)
                     {
+                        SoundManager.Instance.FireCannons();
                         GSM(GameState.Fighting);
                     }
                     else if(tile.type == Tile.TileType.Island || tile.type == Tile.TileType.RoyalPort)
                     {
+                        SoundManager.Instance.ClashingSwords();
                         GSM(GameState.Raiding);
                     }
                     else
@@ -327,6 +334,7 @@ public class GameController : MonoBehaviour
             UIManager.Instance.SetUpPopup("Arrr, Victory!", "We sunk the " + enemy.Name + ", a " + enemy.type + ", to the briney depths. Though we lost " +
                 playerLosses + " mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. With the burned hulk of the " 
                 + enemy.Name +" and all " + enemyLosses + " of its crew are in Davy Jones' locker, we be free to raid in the area to hearts' content.", 0);
+            SoundManager.Instance.ExchangeGold();
         }
         //didnt sink the enemy but still "Won"
         else
@@ -335,6 +343,7 @@ public class GameController : MonoBehaviour
             UIManager.Instance.SetUpPopup("Arrr, Victory!", "We beat the " + enemy.Name + ", a " + enemy.type + ", in battle. Though we lost " + 
                 playerLosses +" mateys, our remaining " + rm.crewAmount + " crewmembers stole " + lootGained + " gold. The battered " + enemy.Name + 
                 " still remains in this sea zone, (perhaps with some treasure we missed) so ye be warned if ye choose to stay here next morn'.", 0);
+            SoundManager.Instance.ReputationIncrease();
         }
 
         while (state == GameState.Fighting)
@@ -385,6 +394,7 @@ public class GameController : MonoBehaviour
 
                     ResourceManager.Instance.AdjustReputation(hostilesLost*10);
                     ResourceManager.Instance.AdjustGold(goldGained);
+                    SoundManager.Instance.ReputationIncrease();
                 }
                 else //everyone died
                 {
@@ -392,10 +402,11 @@ public class GameController : MonoBehaviour
                     ResourceManager.Instance.AdjustReputation(-(inputNum * 10));
                     UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name + 
                         ". Our reputation definitely took a hit.", 0);
+                    SoundManager.Instance.FailureSound();
                 }
                 tile.lootAmount -= goldGained;
             }
-            else
+            else //if raiding an island
             {
                 crewLostToIsland = Mathf.Clamp((int)(tile.Hostiles * UnityEngine.Random.Range(0, 1.01f)), 0, inputNum);
                 ResourceManager.Instance.AdjustCrew(-crewLostToIsland);
@@ -410,6 +421,7 @@ public class GameController : MonoBehaviour
                     UIManager.Instance.SetUpPopup("Disaster!", "All the crew we sent died trying to raid " + tile.Name +
                         ". Our reputation definitely took a hit.", 0);
                     ResourceManager.Instance.AdjustReputation(-crewLostToIsland);
+                    SoundManager.Instance.FailureSound();
                 }
                 else if(Chance100(tile.lootChance) && inputNum > 0) //some survived; found loot. You get reputation = 10th of gold
                 { 
@@ -421,6 +433,7 @@ public class GameController : MonoBehaviour
                         goldGained +" gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + " people in the fight...", 0);
                     ResourceManager.Instance.AdjustGold(goldGained);
                     ResourceManager.Instance.AdjustReputation(goldGained/10);
+                    SoundManager.Instance.ExchangeGold();
                 }
                 else //some survived; didnt find any loot
                 {
@@ -495,6 +508,10 @@ public class GameController : MonoBehaviour
                     {
                         rm.AdjustGold(-ui.InputFieldNum * rm.goldPerCrew);
                         rm.AdjustCrew(ui.InputFieldNum);
+                        if (ui.InputFieldNum != 0)
+                        {
+                            SoundManager.Instance.ExchangeGold();
+                        }
                         GSM(GameState.Event);
                     }
                     else
@@ -549,6 +566,7 @@ public class GameController : MonoBehaviour
             var popup = UIManager.Instance.Popup;
             popup.SetActive(true);
             UIManager.Instance.SetUpPopup(pirateEvent.EventName, pirateEvent.Description, 0);
+            SoundManager.Instance.EventPaperSound();
         }  
         else
         {
