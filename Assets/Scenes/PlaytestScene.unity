@@ -1534,6 +1534,30 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: GameFail
+      value: 
+      objectReference: {fileID: 8300000, guid: ef6ce6abb1fed6b4b8677b6866100bfb, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: DJonesEvent
+      value: 
+      objectReference: {fileID: 8300000, guid: a415b9fc7c2dcc643902061897c8f5d3, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: GIslandEvent
+      value: 
+      objectReference: {fileID: 8300000, guid: 8be6949ada28858479cb82c35e4ec9e6, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: MessageEvent
+      value: 
+      objectReference: {fileID: 8300000, guid: c6384b8542136cb4b93db337908db2f4, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: TitanicEvent
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ee2961e92352c440a9656ae776978bb, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
+      propertyPath: LevelComplete
+      value: 
+      objectReference: {fileID: 8300000, guid: 04e30920dad429f4db1235e99bc9f778, type: 3}
+    - target: {fileID: 3574814999461569794, guid: 6b63333633953f841b659aabb68a5ee5, type: 3}
       propertyPath: audioLocation
       value: 
       objectReference: {fileID: 968316155}

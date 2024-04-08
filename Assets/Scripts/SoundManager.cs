@@ -60,6 +60,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip KrakenEvent;
     [SerializeField] private AudioClip MutinyEvent;
     [SerializeField] private AudioClip LoanSharkEvent;
+    [SerializeField] private AudioClip MessageEvent;
+    [SerializeField] private AudioClip TitanicEvent;
+    [SerializeField] private AudioClip DJonesEvent;
+    [SerializeField] private AudioClip GIslandEvent;
+    [SerializeField] private AudioClip LevelComplete;
+    [SerializeField] private AudioClip GameFail;
 
     //this object is the location of where the audioclips will play in the scene
     [SerializeField] private GameObject audioLocation;
@@ -113,5 +119,37 @@ public class SoundManager : MonoBehaviour
     public void EventMutiny()
     {
         AudioSource.PlayClipAtPoint(MutinyEvent, audioLocation.transform.position);
+    }
+
+    public void EventBottle()
+    {
+        AudioSource.PlayClipAtPoint(MessageEvent, audioLocation.transform.position);
+    }
+
+    public void EventTitanic()
+    {
+        AudioSource.PlayClipAtPoint(TitanicEvent, audioLocation.transform.position);
+    }
+
+    public void EventDavyJones()
+    {
+        AudioSource.PlayClipAtPoint(DJonesEvent, audioLocation.transform.position);
+    }
+
+    public void EventGoldISland()
+    {
+        AudioSource.PlayClipAtPoint(GIslandEvent, audioLocation.transform.position);
+    }
+
+    //this function is to be called when the player wins the game
+    public void VictorySound()
+    {
+        AudioSource.PlayClipAtPoint(LevelComplete, audioLocation.transform.position);
+    }
+
+    //this function is to be called when the player loses the game
+    public void GameOverSound()
+    {
+        AudioSource.PlayClipAtPoint(GameFail, audioLocation.transform.position);
     }
 }
