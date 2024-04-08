@@ -288,8 +288,6 @@ public class GameController : MonoBehaviour
         var popup = UIManager.Instance.Popup;
         var enemy = PlayerManager.Instance.TilePlayerIsOn.GetComponent<Tile>().Interactable.GetComponent<Interactable>();
         var rm = ResourceManager.Instance;
-        print(enemy.Name);
-        print(enemy.Health);
 
         //int enemyRand = UnityEngine.Random.Range(3, 6);  //More punishing (their dmg divided by a larger number, their losses guaranteed to be bigger)
         //int playerRand = UnityEngine.Random.Range(1, 4); //Possibility to be less punishing
@@ -316,13 +314,14 @@ public class GameController : MonoBehaviour
         int lootGained = enemy.Loot / (int)Mathf.Clamp((playerLosses * 0.5f), 1, (playerLosses * 0.5f));
 
         print(dmgToPlayer + " " + playerLosses + " " + lootGained + " " + dmgToEnemy + " " + enemyLosses);
+
         enemy.Loot -= lootGained;
         enemy.Health -= dmgToEnemy;
         enemy.Manpower -= enemyLosses;
         enemy.CatchPlayerChance /= 2;
 
         rm.AdjustCrew(-playerLosses);
-        rm.AdjustHealth(dmgToPlayer);
+        rm.AdjustHealth(-dmgToPlayer);
         rm.AdjustGold(lootGained);
         rm.AdjustReputation((enemyLosses / enemyRand) + enemy.RenownValue);
 
