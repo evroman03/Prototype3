@@ -301,8 +301,8 @@ public class GameController : MonoBehaviour
         int playerRand = UnityEngine.Random.Range(3, 7);
         int enemyRand = UnityEngine.Random.Range(6, 10);
 
-        int playerMult = rm.crewAmount / playerRand;
-        int enemyMult = enemy.Manpower / enemyRand;
+        int playerMult = Mathf.Max(rm.crewAmount / playerRand, 1);
+        int enemyMult = Mathf.Max(enemy.Manpower / enemyRand, 1);
 
         int dmgToPlayer = (enemy.Damage * enemyMult*100) / (rm.healthAmount);
         int dmgToEnemy = (rm.cannonCount * playerMult*100) / (enemy.Health);
@@ -394,7 +394,7 @@ public class GameController : MonoBehaviour
                     UIManager.Instance.SetUpPopup("Success!", "We lost " + crewLostToFort + " crew raiding " + tile.Name + ", but found " + 
                         goldGained + " gold! " + "They'll fear us a little more now, since they lost " + hostilesLost + " people in the fight...", 0);
 
-                    ResourceManager.Instance.AdjustReputation(hostilesLost*10);
+                    ResourceManager.Instance.AdjustReputation(hostilesLost* UnityEngine.Random.Range(3, 11));
                     ResourceManager.Instance.AdjustGold(goldGained);
                     SoundManager.Instance.ReputationIncrease();
                 }
