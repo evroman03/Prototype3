@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fd12866e3ad3848bc79fa8e1a64eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OceanChance: 85
-  PirateCoveChance: 4
-  RoyalPortChance: 4
-  IslandChance: 7
+  OceanChance: 82
+  PirateCoveChance: 5
+  RoyalPortChance: 5
+  IslandChance: 8
   MaxPirateCoves: 5
   MaxRoyalPorts: 6
   MaxIslands: 10
@@ -76,12 +76,21 @@ MonoBehaviour:
   OceanTileNames:
   - Warm, sunny waters
   - Sharky waters
+  - Deep waters
+  - Dangerous waters
   PirateTileNames:
   - Cocount Docks
   - Blackbeard Bay
   RoyalTileNames:
   - Port Royale
   - New Heamersworth
+  - Port au Prince
   IslandTileNames:
   - Aruba
+  - Jamaica
+  - Bermuda
+  - Bahama
   - Key Largo
+  - Montego
+  - Martinique
+  - Montserrat

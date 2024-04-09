@@ -551,15 +551,24 @@ public class GameController : MonoBehaviour
                     break;
                 case Event.SendToTile.Island:
                     GameObject[] objs2 = TileManager.Instance.LegalPlayerTiles.Where(x => x.GetComponent<Tile>().type == Tile.TileType.Island).ToArray();
-                    PlayerManager.Instance.MoveToTile(objs2[UnityEngine.Random.Range(0, objs2.Length)].GetComponent<Tile>());
+                    if(objs2 != null)
+                    {
+                        PlayerManager.Instance.MoveToTile(objs2[UnityEngine.Random.Range(0, objs2.Length)].GetComponent<Tile>());
+                    }
                     break;
                 case Event.SendToTile.Royal:
                     GameObject[] objs3 = TileManager.Instance.LegalPlayerTiles.Where(x => x.GetComponent<Tile>().type == Tile.TileType.RoyalPort).ToArray();
-                    PlayerManager.Instance.MoveToTile(objs3[UnityEngine.Random.Range(0, objs3.Length)].GetComponent<Tile>());
+                    if(objs3 != null)
+                    {
+                        PlayerManager.Instance.MoveToTile(objs3[UnityEngine.Random.Range(0, objs3.Length)].GetComponent<Tile>());
+                    }
                     break;
-                case Event.SendToTile.Port:
+                case Event.SendToTile.Port:                   
                     GameObject[] objs4 = TileManager.Instance.LegalPlayerTiles.Where(x => x.GetComponent<Tile>().type == Tile.TileType.PirateCove).ToArray();
-                    PlayerManager.Instance.MoveToTile(objs4[UnityEngine.Random.Range(0, objs4.Length)].GetComponent<Tile>());
+                    if (objs4 != null)
+                    {
+                        PlayerManager.Instance.MoveToTile(objs4[UnityEngine.Random.Range(0, objs4.Length)].GetComponent<Tile>());
+                    }
                     break;
                 case Event.SendToTile.Exact:
                     PlayerManager.Instance.MoveToTile(TileManager.Instance.GetTileAtCoordinates(pirateEvent.ShipExactMoveTo.x, pirateEvent.ShipExactMoveTo.z).GetComponent<Tile>());
