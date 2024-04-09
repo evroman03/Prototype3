@@ -1964,7 +1964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To move, click a direction on the compass in the top left of the screen
+  m_text: 'To move, click a direction on the compass in the center of the screen
     to move in that direction. You can move one tile per round
 
 
